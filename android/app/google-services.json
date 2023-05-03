@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "28807731044",
+    "project_id": "athenas-307b8",
+    "storage_bucket": "athenas-307b8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:28807731044:android:9e91a62f3eccdd5fd90c71",
+        "android_client_info": {
+          "package_name": "com.example.flopps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "28807731044-s59fd0b1p2ghddbrbe7elenanv1gsccf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeZXJ7zUEHDhccBmw4vfHcfvndOzpksQk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "28807731044-s59fd0b1p2ghddbrbe7elenanv1gsccf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
