@@ -8,54 +8,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76b60cba-fd6c-4450-869d-4c3c75da4bd9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/android/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/.idea/kotlinc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/entities/users/repositories/AuthRepository.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/fonts/sourseSansPro/SourceSansPro-Black.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/fonts/sourseSansPro/SourceSansPro-BlackItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/fonts/sourseSansPro/SourceSansPro-Bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/fonts/sourseSansPro/SourceSansPro-BoldItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/fonts/sourseSansPro/SourceSansPro-ExtraLight.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/fonts/sourseSansPro/SourceSansPro-ExtraLightItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/fonts/sourseSansPro/SourceSansPro-Italic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/fonts/sourseSansPro/SourceSansPro-Light.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/fonts/sourseSansPro/SourceSansPro-LightItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/fonts/sourseSansPro/SourceSansPro-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/fonts/sourseSansPro/SourceSansPro-SemiBold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/fonts/sourseSansPro/SourceSansPro-SemiBoldItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/screens/Dashboard/MainDashboard/DashBoard.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/screens/loginScreen/LoginForm.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/screens/loginScreen/LoginFormLandScape.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/screens/loginScreen/LoginLandScape.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/screens/loginScreen/LoginPortrait.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/screens/loginScreen/styles.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/screens/signUp/SignUpForm.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/screens/signUp/SignUpFormLandScape.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/screens/signUp/signUpLandScape.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/screens/signUp/signUpMain.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/screens/signUp/signUpPortrait.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/screens/signUp/styles.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/entities/users/userSnackBar.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/settings/Settings.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/DrawerMenu.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flopps.iml" beforeDir="false" afterPath="$PROJECT_DIR$/flopps.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/entities/users/SignInController.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/users/SignInController.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/entities/users/model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/users/model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/entities/users/signUp_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/users/SignInController.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/loginScreen/LoginLandScape.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/users/controllers/userController.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/loginScreen/LoginMain.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/loginScreen/LoginMain.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/loginScreen/LoginPortrait.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/users/repositories/UserRepository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/entities/users/repositories/AuthRepository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/users/repositories/AuthRepository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/entities/users/repositories/UserRepository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/users/repositories/UserRepository.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/Dashboard/MainDashboard/DashBoard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/Dashboard/MainDashboard/DashBoard.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/loginScreen/LoginMain.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/loginScreen/LoginMain.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/signUp/signUpMain.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/signUp/signUpMain.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/utils/Strings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/Strings.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

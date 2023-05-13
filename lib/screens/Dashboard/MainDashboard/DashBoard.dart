@@ -7,6 +7,7 @@ class MainDashboard extends StatelessWidget {
    final controller = Get.put(SignInController());
   @override
   Widget build(BuildContext context) {
+
     return  Scaffold(
       body: Center(
         child: OutlinedButton(onPressed: (){SignInController.instance.logOut();}, child: const Text("log out")),

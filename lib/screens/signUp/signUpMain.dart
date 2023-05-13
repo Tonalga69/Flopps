@@ -3,6 +3,7 @@ import 'package:flopps/screens/signUp/signUpPortrait.dart';
 import 'package:flutter/material.dart';
 
 
+
 class SignUpMain extends StatelessWidget {
   const SignUpMain({Key? key}) : super(key: key);
 

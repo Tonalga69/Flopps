@@ -1,27 +1,32 @@
-
 import 'package:flopps/entities/users/repositories/AuthRepository.dart';
+import 'package:flopps/entities/users/repositories/UserRepository.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-class SignInController extends GetxController{
 
+class SignInController extends GetxController {
   static SignInController get instance => Get.find();
-  final email= TextEditingController();
-  final password= TextEditingController();
+  final email = TextEditingController();
+  final password = TextEditingController();
 
   //register user
-  registerUserWithPassword(String email, String password){
-      AuthRepository.instance.createUserWithPassword(email, password);
+  registerUserWithPassword(String email, String password) {
+    AuthRepository.instance.createUserWithPassword(email, password).then(
+        (user) =>
+            user != null ? UserRepository.instance.createUser(user) : null);
   }
 
   //login user
-  loginUserWithPassword(String email, String password){
-     AuthRepository.instance.loginWithPassword(email, password);
+  loginUserWithPassword(String email, String password) {
+    AuthRepository.instance.loginWithPassword(email, password);
   }
 
-  logOut(){
+  logOut() {
     AuthRepository.instance.logout();
   }
-  loginWithGoogle(){
-    AuthRepository.instance.loginWithGoogle();
+
+  loginWithGoogle() {
+    AuthRepository.instance.loginWithGoogle().then((user) {
+      user != null ? UserRepository.instance.createOrNotUser(user) : () {};
+    });
   }
 }
