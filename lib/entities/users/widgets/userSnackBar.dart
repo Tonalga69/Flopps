@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
-import '../../utils/ProjectColors.dart';
-import '../../utils/Strings.dart';
+import '../../../utils/ProjectColors.dart';
+import '../../../utils/Strings.dart';
 
 const errorSnackBar = GetSnackBar(
     backgroundColor: Color(ProjectColors.grayBackground),
@@ -92,3 +92,5 @@ const errorCreatingAccount = GetSnackBar(
       FontAwesomeIcons.check,
       color: Color(ProjectColors.blue),
     ));
+
+ genericSnackBar(String text)=> SnackBar(content: Text(text));

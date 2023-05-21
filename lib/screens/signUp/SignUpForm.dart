@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
-import '../../entities/users/SignInController.dart';
+import '../../entities/users/controllers/SignInController.dart';
 import '../../utils/ProjectColors.dart';
 import '../../utils/Strings.dart';
 

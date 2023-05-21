@@ -1,4 +1,4 @@
-import 'package:flopps/entities/users/SignInController.dart';
+import 'package:flopps/entities/users/controllers/SignInController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -18,6 +18,7 @@ void main() {
       .then((value) {
     Get.put(AuthRepository());
     Get.put(UserRepository());
+    Get.put(UserRepository());
     FlutterNativeSplash.remove();
   });
   runApp(const MyApp());

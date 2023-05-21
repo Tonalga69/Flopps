@@ -1,5 +1,6 @@
 import 'package:flopps/entities/users/repositories/AuthRepository.dart';
 import 'package:flopps/entities/users/repositories/UserRepository.dart';
+import 'package:flopps/entities/users/repositories/authMethod.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -26,7 +27,10 @@ class SignInController extends GetxController {
 
   loginWithGoogle() {
     AuthRepository.instance.loginWithGoogle().then((user) {
-      user != null ? UserRepository.instance.createOrNotUser(user) : () {};
+    if ( user != null){
+      user.authMethod= AuthMethod.google;
+      UserRepository.instance.createOrNotUser(user);
+    }
     });
   }
 }
