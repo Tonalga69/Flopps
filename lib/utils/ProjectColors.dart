@@ -5,6 +5,7 @@ class ProjectColors{
   static const int blue= 0xff60d4ea;
   static const int grayBackground=0Xff757575;
   static const int darkBackground=0xff373739;
+  static const int white= 0xfff5f5f5;
 
 
 }

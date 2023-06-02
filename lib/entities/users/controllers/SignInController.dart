@@ -4,8 +4,8 @@ import 'package:flopps/entities/users/repositories/authMethod.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-class SignInController extends GetxController {
-  static SignInController get instance => Get.find();
+class AuthController extends GetxController {
+  static AuthController get instance => Get.find();
   final email = TextEditingController();
   final password = TextEditingController();
 

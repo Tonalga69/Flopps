@@ -25,7 +25,7 @@ class _UserProfileState extends State<UserProfile> {
   final _screenShotController = ScreenshotController();
   final _textEditingController =
       TextEditingController(text: Strings.writeUserName);
-  bool readonly = false;
+  bool readonly = true;
 
   @override
   void initState() {
@@ -51,10 +51,8 @@ class _UserProfileState extends State<UserProfile> {
             _textEditingController.value = TextEditingValue(
                 text: snapshot.data?.userName ?? Strings.writeUserName);
           }
-          if(_textEditingController.value.text.contains(Strings.writeUserName)){
-
-
-          }
+          if (_textEditingController.value.text
+              .contains(Strings.writeUserName)) {}
           return Screenshot(
             controller: _screenShotController,
             child: Container(
@@ -126,22 +124,38 @@ class _UserProfileState extends State<UserProfile> {
                               )
                             else
                               Visibility(
-                                visible: readonly,
-                                child: const Positioned(
+                                  visible: readonly,
+                                  child: const Positioned(
                                     right: 0,
                                     bottom: 0,
                                     child: Icon(Icons.mail,
-                                        color: Color(ProjectColors.blue))),
-                              ),
+                                        color: Color(ProjectColors.blue)),
+                                  )),
                             Visibility(
                               visible: !readonly,
-                              child: const Positioned(
-                                  right: 0,
-                                  bottom: 0,
-                                  child: Icon(
-                                    FontAwesomeIcons.camera,
-                                    color: Color(ProjectColors.blue),
-                                    size: 24,
+                              child: Positioned(
+                                  right: -10,
+                                  bottom: -10,
+                                  child: IconButton(
+                                    icon: const Icon(
+                                      FontAwesomeIcons.camera,
+                                      color: Color(ProjectColors.blue),
+                                      size: 24,
+                                    ),
+                                    onPressed: () {
+                                      if (!readonly) {
+                                        UserController.instance
+                                            .uploadPhoto(context)
+                                            .then((value) {
+                                          if (value != null) {
+                                            setState(() {
+                                              snapshot.data?.profilePhoto =
+                                                  value;
+                                            });
+                                          }
+                                        });
+                                      }
+                                    },
                                   )),
                             )
                           ]),
@@ -274,17 +288,20 @@ class _UserProfileState extends State<UserProfile> {
                           onPressed: () {
                             setState(() {
                               readonly = !readonly;
-                              if (readonly) {
+                              if (readonly &&
+                                  !_textEditingController.value.text.contains(
+                                      snapshot.data?.userName as Pattern)) {
                                 if (_textEditingController
                                         .value.text.isNotEmpty &&
                                     _textEditingController.value.text.length >
-                                        7 && !_textEditingController.value.text.contains(snapshot.data?.userName as Pattern)) {
+                                        7) {
                                   UserController.instance.updateUser(map: {
                                     "userName":
                                         _textEditingController.value.text.trim()
                                   }, context: context);
 
-                                  snapshot.data?.userName= _textEditingController.value.text.trim();
+                                  snapshot.data?.userName =
+                                      _textEditingController.value.text.trim();
                                 } else {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                       genericSnackBar(
@@ -293,13 +310,39 @@ class _UserProfileState extends State<UserProfile> {
                               }
                             });
                           },
+                          style: ButtonStyle(
+                              fixedSize: MaterialStateProperty.all(
+                                  const Size(100, 30)),
+                              side: MaterialStateProperty.all(
+                                  const BorderSide(color: Color(0xffffffff))),
+                              backgroundColor: MaterialStateProperty.all(
+                                  const Color(ProjectColors.darkBackground)),
+                              shape: MaterialStateProperty.all(
+                                  const RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(50))))),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: readonly
-                                ? const [Icon(Icons.edit), Text(Strings.edit)]
+                                ? const [
+                                    Icon(
+                                      Icons.edit,
+                                      color: Color(ProjectColors.white),
+                                    ),
+                                    Text(Strings.edit, style: TextStyle(
+                                        color: Color(ProjectColors.white),
+                                        fontFamily: FontFamily.sourceSansPro
+                                    ),)
+                                  ]
                                 : const [
-                                    Icon(Icons.save_as_rounded),
-                                    Text(Strings.save)
+                                    Icon(
+                                      Icons.save_as_rounded,
+                                      color: Color(ProjectColors.white),
+                                    ),
+                                    Text(Strings.save, style: TextStyle(
+                                      color: Color(ProjectColors.white),
+                                      fontFamily: FontFamily.sourceSansPro
+                                    ),)
                                   ],
                           ))
                     ],

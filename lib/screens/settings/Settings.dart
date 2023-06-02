@@ -2,11 +2,12 @@ import 'package:flopps/entities/users/controllers/userController.dart';
 import 'package:flopps/entities/users/widgets/profile.dart';
 import 'package:flopps/utils/DrawerMenu.dart';
 import 'package:flopps/utils/ProjectColors.dart';
+import 'package:flopps/utils/Strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-import '../../entities/users/controllers/SignInController.dart';
+import '../../entities/assistant/widgets/settings.dart';
 
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
@@ -26,7 +27,8 @@ class _SettingsState extends State<Settings> {
         //statusBarColor: Colors.transparent,
         //systemStatusBarContrastEnforced: true,
 
-      )),
+      ),
+      title: const Text("Settings", style: TextStyle( fontFamily: FontFamily.sourceSansPro),)),
       drawer: DrawerMenu(),
       body: Container(
         width: double.infinity,
@@ -38,7 +40,7 @@ class _SettingsState extends State<Settings> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewPadding.top)),
-              OutlinedButton(onPressed: (){SignInController.instance.logOut();}, child: const Text("log out, please")),
+              const AssistantSettings(),
               const UserProfile(padding: EdgeInsets.all(10),)
             ],
           ),

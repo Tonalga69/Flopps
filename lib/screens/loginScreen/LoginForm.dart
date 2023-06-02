@@ -19,7 +19,7 @@ class LoginFormPortrait extends StatefulWidget {
 
 class _LoginFormPortraitState extends State<LoginFormPortrait> {
   final _formKey = GlobalKey<FormState>();
-  final formController = Get.put(SignInController());
+  final formController = Get.put(AuthController());
   bool isPasswordVisible = true;
   bool isSignInGoogle = false;
   bool isSignInEmail = false;
@@ -96,7 +96,7 @@ class _LoginFormPortraitState extends State<LoginFormPortrait> {
           EmailAuthButton(
             onPressed: () {
               if (_formKey.currentState!.validate()) {
-                SignInController.instance.loginUserWithPassword(
+                AuthController.instance.loginUserWithPassword(
                     formController.email.text.trim(),
                     formController.password.text.trim());
                 setState(() {
@@ -121,7 +121,7 @@ class _LoginFormPortraitState extends State<LoginFormPortrait> {
           GoogleAuthButton(
             isLoading: isSignInGoogle,
             onPressed: () {
-              SignInController.instance.loginWithGoogle();
+              AuthController.instance.loginWithGoogle();
               setState(() {
                 isSignInGoogle=true;
               });

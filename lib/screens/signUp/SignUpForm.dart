@@ -19,7 +19,7 @@ class SignUpForm extends StatefulWidget {
 
 class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
-  final formController = Get.put(SignInController());
+  final formController = Get.put(AuthController());
   bool isPasswordVisible = true;
   bool isSignInGoogle = false;
   bool isSignInEmail = false;
@@ -96,7 +96,7 @@ class _SignUpFormState extends State<SignUpForm> {
             text: Strings.loginPassword,
             onPressed: () {
               if (_formKey.currentState!.validate()) {
-                SignInController.instance.registerUserWithPassword(
+                AuthController.instance.registerUserWithPassword(
                     formController.email.text.trim(),
                     formController.password.text.trim());
                 setState(() {
@@ -121,7 +121,7 @@ class _SignUpFormState extends State<SignUpForm> {
           GoogleAuthButton(
             isLoading: isSignInGoogle,
             onPressed: () {
-              SignInController.instance.loginWithGoogle();
+              AuthController.instance.loginWithGoogle();
               setState(() {
                 isSignInGoogle = true;
               });

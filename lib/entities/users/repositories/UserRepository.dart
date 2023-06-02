@@ -30,6 +30,7 @@ class UserRepository extends GetxController {
 
   }
 
+
   Future<void> createOrNotUser(UserModel user) async {
     DocumentSnapshot document =
         await db.collection(Collections.users).doc(user.uid).get();

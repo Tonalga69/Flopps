@@ -49,7 +49,9 @@ class AuthRepository extends GetxController {
           : Get.to(() => const LoginMain());
 
       return UserModel(
-          uid: firebaseUser.value!.uid, email: firebaseUser.value!.email!, authMethod: AuthMethod.email);
+          uid: firebaseUser.value!.uid,
+          email: firebaseUser.value!.email!,
+          authMethod: AuthMethod.email);
     } on FirebaseAuthException catch (_) {
     } catch (_) {}
 
@@ -87,8 +89,13 @@ class AuthRepository extends GetxController {
   Future<void> logout() async {
     await _auth.signOut();
     firebaseUser.value != null
-        ? Get.offAll(() => const Settings())
-        : Get.to(() => const LoginMain());
+        ? Get.offAll(
+            transition: Transition.rightToLeft,
+            duration: const Duration(milliseconds: 500),
+            () => const Settings())
+        : Get.to(() => const LoginMain(),
+            transition: Transition.leftToRight,
+            duration: const Duration(milliseconds: 500));
     await GoogleSignIn().signOut();
   }
 

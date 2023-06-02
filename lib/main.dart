@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
+import 'entities/assistant/repository/AssistantRepository.dart';
+import 'entities/users/repositories/storageRepository.dart';
 
 void main() {
   var widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -18,7 +20,8 @@ void main() {
       .then((value) {
     Get.put(AuthRepository());
     Get.put(UserRepository());
-    Get.put(UserRepository());
+    Get.put(StorageRepository());
+    Get.put(AssistantRepository());
     FlutterNativeSplash.remove();
   });
   runApp(const MyApp());

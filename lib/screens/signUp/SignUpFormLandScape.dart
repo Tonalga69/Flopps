@@ -17,7 +17,7 @@ class SignUpFormLandScape extends StatefulWidget {
 
 class _SignUpFormLandScapeState extends State<SignUpFormLandScape> {
   final _formKey = GlobalKey<FormState>();
-  final formController = Get.put(SignInController());
+  final formController = Get.put(AuthController());
   bool isPasswordVisible = true;
   bool isSignInGoogle = false;
   bool isSignInEmail = false;
@@ -113,7 +113,7 @@ class _SignUpFormLandScapeState extends State<SignUpFormLandScape> {
                   EmailAuthButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        SignInController.instance.loginUserWithPassword(
+                        AuthController.instance.loginUserWithPassword(
                             formController.email.text.trim(),
                             formController.password.text.trim());
                         setState(() {
@@ -137,7 +137,7 @@ class _SignUpFormLandScapeState extends State<SignUpFormLandScape> {
                   const Padding(padding: EdgeInsets.all(5)),
                   GoogleAuthButton(
                     onPressed: () {
-                      SignInController.instance.loginWithGoogle();
+                      AuthController.instance.loginWithGoogle();
                       setState(() {
                         isSignInGoogle = true;
                       });

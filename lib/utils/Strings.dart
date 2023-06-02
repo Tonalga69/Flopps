@@ -30,10 +30,14 @@ class Strings {
   static const String genericError= "There was an error, try again";
   static const String userNameNotValid="User name should be 8 characters long or more";
   static const String genericSuccess= "Successfully done";
+  static const String errorGetAssistant= "There was an error at getting the assistant";
 }
 
 class Collections{
   static const String users="Users";
+  static const String assistant="Assistant";
+  static const String events="Events";
+  static const String availableAssistants= "Assistants";
 }
 
 class FontFamily{
