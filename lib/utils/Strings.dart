@@ -31,6 +31,14 @@ class Strings {
   static const String userNameNotValid="User name should be 8 characters long or more";
   static const String genericSuccess= "Successfully done";
   static const String errorGetAssistant= "There was an error at getting the assistant";
+  static const String yourAssistant= "Your assistant";
+  static const String active="Active";
+  static const String notactive="Not active";
+  static const String unable="Unable";
+  static const String enable="Enabled";
+  static const String readNotifications= "Read notifications";
+  static const String overlayApp= "Overlay other apps";
+  static const String activeVoiceListening= "Active voice listening";
 }
 
 class Collections{

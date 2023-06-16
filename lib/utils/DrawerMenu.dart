@@ -2,6 +2,8 @@ import 'package:auth_buttons/auth_buttons.dart';
 import 'package:flopps/entities/users/controllers/SignInController.dart';
 import 'package:flopps/entities/users/controllers/userController.dart';
 import 'package:flopps/entities/users/repositories/authMethod.dart';
+import 'package:flopps/screens/Dashboard/MainDashboard/DashBoard.dart';
+import 'package:flopps/screens/settings/Settings.dart';
 import 'package:flopps/utils/ProjectColors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,6 +14,7 @@ class DrawerMenu extends StatelessWidget {
   DrawerMenu({Key? key}) : super(key: key);
   final userController = UserController.instance;
   final authController = Get.put(AuthController());
+
 
   @override
   Widget build(BuildContext context) {
@@ -119,9 +122,38 @@ class DrawerMenu extends StatelessWidget {
                   style: ListTileStyle.drawer,
                   subtitle: const Text("Change your user name, photo, etc",
                       style: TextStyle(color: Color(0xffffffff))),
-                  onTap: () {},
+                  onTap: () {
+                    Get.off(() => const Settings(),
+                        transition: Transition.rightToLeft,
+                        duration: const Duration(milliseconds: 500));
+                  },
                   trailing: const Icon(
                     Icons.settings,
+                    color: Color(ProjectColors.grayBackground),
+                  ),
+                ),
+                Container(
+                  height: 1,
+                  color: const Color(ProjectColors.grayBackground),
+                  width: double.infinity - 100,
+                ),
+                ListTile(
+                  title: const Text(
+                    "Dashboard",
+                    style: TextStyle(
+                      color: Color(0xffffffff),
+                    ),
+                  ),
+                  style: ListTileStyle.drawer,
+                  subtitle: const Text("Go to home screen",
+                      style: TextStyle(color: Color(0xffffffff))),
+                  onTap: () {
+                    Get.off(() => const MainDashboard(),
+                        transition: Transition.rightToLeft,
+                        duration: const Duration(milliseconds: 500));
+                  },
+                  trailing: const Icon(
+                    Icons.home_filled,
                     color: Color(ProjectColors.grayBackground),
                   ),
                 ),

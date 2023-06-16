@@ -6,7 +6,7 @@ import 'package:flopps/utils/Strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-
+import '../../entities/assistant/controllers/AssistantController.dart';
 import '../../entities/assistant/widgets/settings.dart';
 
 class Settings extends StatefulWidget {
@@ -17,10 +17,11 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-  final controller = Get.put(UserController());
-
+  final controllerAssistant = Get.put(AssistantController());
+  final controllerUser = Get.put(UserController());
   @override
   Widget build(BuildContext context) {
+    controllerUser.getUserData().then((value) => null);
     return Scaffold(
       appBar: AppBar(backgroundColor: const Color(ProjectColors.strongBlue),
       systemOverlayStyle: const SystemUiOverlayStyle(

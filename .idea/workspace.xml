@@ -13,35 +13,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76b60cba-fd6c-4450-869d-4c3c75da4bd9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/entities/assistant/controllers/AssistantController.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/entities/assistant/models/model.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/entities/assistant/repository/AssistantRepository.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/entities/assistant/widgets/settings.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/entities/users/repositories/storageRepository.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/entities/assistant/widgets/styles.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/kotlinc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/entities/users/controllers/SignInController.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/users/controllers/SignInController.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/entities/users/controllers/userController.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/users/controllers/userController.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/entities/users/model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/users/model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/entities/assistant/controllers/AssistantController.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/assistant/controllers/AssistantController.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/entities/assistant/widgets/settings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/assistant/widgets/settings.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/entities/users/repositories/AuthRepository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/users/repositories/AuthRepository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/entities/users/repositories/UserRepository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/users/repositories/UserRepository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/entities/users/widgets/profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/users/widgets/profile.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/Dashboard/MainDashboard/DashBoard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/Dashboard/MainDashboard/DashBoard.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/loginScreen/LoginForm.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/loginScreen/LoginForm.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/loginScreen/LoginFormLandScape.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/loginScreen/LoginFormLandScape.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/settings/Settings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/settings/Settings.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/signUp/SignUpForm.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/signUp/SignUpForm.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/signUp/SignUpFormLandScape.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/signUp/SignUpFormLandScape.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/utils/DrawerMenu.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/DrawerMenu.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/ProjectColors.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/ProjectColors.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/utils/Strings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/Strings.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

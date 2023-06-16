@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flopps/entities/users/model.dart';
 import 'package:flopps/entities/users/repositories/authMethod.dart';
+import 'package:flopps/screens/Dashboard/MainDashboard/DashBoard.dart';
 import 'package:flopps/screens/loginScreen/LoginMain.dart';
 import 'package:flopps/screens/settings/Settings.dart';
 import 'package:get/get.dart';
@@ -27,7 +28,7 @@ class AuthRepository extends GetxController {
   _initialScreen(User? user) {
     user == null
         ? Get.offAll(() => const LoginMain())
-        : Get.offAll(() => const Settings());
+        : Get.offAll(() => const MainDashboard());
   }
 
   UserModel getAuthUserData() {
@@ -62,7 +63,7 @@ class AuthRepository extends GetxController {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
       firebaseUser.value != null
-          ? Get.offAll(() => const Settings())
+          ? Get.offAll(() => const MainDashboard())
           : Get.to(() => const LoginMain());
     } on FirebaseAuthException catch (_) {
       Get.showSnackbar(errorInvalidPasswordSnackBar);
@@ -73,7 +74,7 @@ class AuthRepository extends GetxController {
     try {
       googleCredential = await _signInWithGoogle();
       firebaseUser.value != null
-          ? Get.offAll(() => const Settings())
+          ? Get.offAll(() => const MainDashboard())
           : Get.to(() => const LoginMain());
       return UserModel(
           uid: firebaseUser.value!.uid,
