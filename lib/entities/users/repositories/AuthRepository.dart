@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flopps/entities/users/model.dart';
 import 'package:flopps/entities/users/repositories/authMethod.dart';
-import 'package:flopps/screens/Dashboard/MainDashboard/DashBoard.dart';
+import 'package:flopps/screens/Dashboard/MainDashboard/dashboard.dart';
 import 'package:flopps/screens/loginScreen/LoginMain.dart';
 import 'package:flopps/screens/settings/Settings.dart';
 import 'package:get/get.dart';

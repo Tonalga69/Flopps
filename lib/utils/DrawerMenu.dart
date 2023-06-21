@@ -2,7 +2,7 @@ import 'package:auth_buttons/auth_buttons.dart';
 import 'package:flopps/entities/users/controllers/SignInController.dart';
 import 'package:flopps/entities/users/controllers/userController.dart';
 import 'package:flopps/entities/users/repositories/authMethod.dart';
-import 'package:flopps/screens/Dashboard/MainDashboard/DashBoard.dart';
+import 'package:flopps/screens/Dashboard/MainDashboard/dashboard.dart';
 import 'package:flopps/screens/settings/Settings.dart';
 import 'package:flopps/utils/ProjectColors.dart';
 import 'package:flutter/material.dart';
