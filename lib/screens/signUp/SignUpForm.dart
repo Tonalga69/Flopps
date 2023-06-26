@@ -150,7 +150,7 @@ class _SignUpFormState extends State<SignUpForm> {
                     fontWeight: FontWeight.w400,
                     fontSize: 12,
                     color: Color(0xffffffff)),
-                text: Strings.HaveAccount,
+                text: Strings.haveAccount,
                 children: [
                   TextSpan(
                       text: Strings.signInHere,

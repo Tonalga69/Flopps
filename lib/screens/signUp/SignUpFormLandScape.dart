@@ -169,7 +169,7 @@ class _SignUpFormLandScapeState extends State<SignUpFormLandScape> {
                             fontWeight: FontWeight.w400,
                             fontSize: 12,
                             color: Color(0xffffffff)),
-                        text: Strings.HaveAccount,
+                        text: Strings.haveAccount,
                         children: [
                           TextSpan(
                               text: Strings.signInHere,

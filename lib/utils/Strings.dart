@@ -7,7 +7,7 @@ class Strings {
   static const String loginGoogle= "Login with Google";
   static const String notHaveAccount= "Don´t have an account yet? ";
   static const String signUpHere= "Sign up here!";
-  static const String HaveAccount= "Already have an account? ";
+  static const String haveAccount= "Already have an account? ";
   static const String signInHere= "Sign In here!";
   static const String signUp= "Sign Up to Flopps";
   static const String continueSignUp= "By signing up, you are accepting the ";
@@ -33,12 +33,18 @@ class Strings {
   static const String errorGetAssistant= "There was an error at getting the assistant";
   static const String yourAssistant= "Your assistant";
   static const String active="Active";
-  static const String notactive="Not active";
+  static const String notActive="Not active";
   static const String unable="Unable";
   static const String enable="Enabled";
   static const String readNotifications= "Read notifications";
   static const String overlayApp= "Overlay other apps";
   static const String activeVoiceListening= "Active voice listening";
+  static const String events="Events";
+  static const String sleepTracker= "Sleep tracker";
+  static const String sleepCycle="Sleep Cycle";
+  static const String awakeHours="Awake hours";
+  static const String averageSleepingHours= "Average sleeping hours";
+  static const String sleepingHours="SleepingHours";
 }
 
 class Collections{

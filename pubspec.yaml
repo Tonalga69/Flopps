@@ -57,6 +57,8 @@ dependencies:
   is_lock_screen: ^2.0.0
   noise_meter: ^3.2.0
   permission_handler: ^10.3.0
+  fl_chart: ^0.62.0
+  percent_indicator: ^4.2.3
 
 dev_dependencies:
   flutter_test:
