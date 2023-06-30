@@ -30,14 +30,14 @@ class SleepTrackerChart extends StatelessWidget {
       );
 
   LineChartData get snoring => LineChartData(
-        lineTouchData: lineTouchData2,
+        lineTouchData: lineSnoringTouchData,
         gridData: gridData,
         titlesData: titlesData2,
         borderData: borderData,
         lineBarsData: lineBarsData2,
         minX: 0.5,
         maxX: 7,
-        maxY: 24,
+        maxY: 100,
         minY: 1,
       );
 
@@ -94,8 +94,9 @@ class SleepTrackerChart extends StatelessWidget {
         lineChartAwakeHours,
       ];
 
-  LineTouchData get lineTouchData2 => LineTouchData(
-        enabled: false,
+  LineTouchData get lineSnoringTouchData => LineTouchData(
+        enabled: true,
+    handleBuiltInTouches: true
       );
 
   FlTitlesData get titlesData2 => FlTitlesData(
@@ -114,12 +115,12 @@ class SleepTrackerChart extends StatelessWidget {
       );
 
   List<LineChartBarData> get lineBarsData2 => [
-        lineChartAverageSleepingHoursStick,
-        lineChartSleepingHoursStick,
-        lineChartAwakeHoursStick,
+        lineChartAverageSnoring,
+        lineChartSnoringTimes,
+        lineChartSnoringLastWeek,
       ];
 
-  Widget leftTitleWidgets(double value, TitleMeta meta) {
+  Widget leftTitleWidgetsSleepingHours(double value, TitleMeta meta) {
     const style = TextStyle(
         fontWeight: FontWeight.bold,
         fontSize: 12,
@@ -176,8 +177,43 @@ class SleepTrackerChart extends StatelessWidget {
     return Text(text, style: style, textAlign: TextAlign.center);
   }
 
+  Widget leftTitleWidgetsSnoring(double value, TitleMeta meta) {
+    const style = TextStyle(
+        fontWeight: FontWeight.bold,
+        fontSize: 12,
+        fontFamily: FontFamily.sourceSansPro,
+        color: Color(ProjectColors.white));
+    String text;
+    switch (value.toInt()) {
+      case 20:
+        text = '20';
+        break;
+
+      case 40:
+        text = '40';
+        break;
+
+      case 60:
+        text = '60';
+        break;
+      case 80:
+        text = '80';
+        break;
+
+      case 100:
+        text = '100';
+        break;
+      default:
+        return Container();
+    }
+
+    return Text(text, style: style, textAlign: TextAlign.center);
+  }
+
   SideTitles leftTitles() => SideTitles(
-        getTitlesWidget: leftTitleWidgets,
+        getTitlesWidget: isShowingMainData
+            ? leftTitleWidgetsSleepingHours
+            : leftTitleWidgetsSnoring,
         showTitles: true,
         interval: 1,
         reservedSize: 35,
@@ -300,7 +336,7 @@ class SleepTrackerChart extends StatelessWidget {
         ],
       );
 
-  LineChartBarData get lineChartAverageSleepingHoursStick => LineChartBarData(
+  LineChartBarData get lineChartAverageSnoring => LineChartBarData(
         isCurved: true,
         curveSmoothness: 0,
         color: const Color(ProjectColors.strongBlue),
@@ -309,17 +345,17 @@ class SleepTrackerChart extends StatelessWidget {
         dotData: FlDotData(show: false),
         belowBarData: BarAreaData(show: false),
         spots: const [
-          FlSpot(1, 7),
-          FlSpot(2, 8),
-          FlSpot(3, 4),
-          FlSpot(4, 13),
-          FlSpot(5, 7),
-          FlSpot(6, 6),
-          FlSpot(7, 7),
+          FlSpot(1, 70),
+          FlSpot(2, 70),
+          FlSpot(3, 70),
+          FlSpot(4, 70),
+          FlSpot(5, 70),
+          FlSpot(6, 70),
+          FlSpot(7, 70),
         ],
       );
 
-  LineChartBarData get lineChartSleepingHoursStick => LineChartBarData(
+  LineChartBarData get lineChartSnoringTimes => LineChartBarData(
         isCurved: true,
         color: Colors.pink.shade700,
         barWidth: 2,
@@ -330,17 +366,17 @@ class SleepTrackerChart extends StatelessWidget {
           color: Colors.pink.withOpacity(0.2),
         ),
         spots: const [
-          FlSpot(1, 8),
-          FlSpot(2, 6),
-          FlSpot(3, 5),
-          FlSpot(4, 6),
-          FlSpot(5, 7),
-          FlSpot(6, 8),
-          FlSpot(7, 8),
+          FlSpot(1, 80),
+          FlSpot(2, 60),
+          FlSpot(3, 50),
+          FlSpot(4, 60),
+          FlSpot(5, 70),
+          FlSpot(6, 80),
+          FlSpot(7, 80),
         ],
       );
 
-  LineChartBarData get lineChartAwakeHoursStick => LineChartBarData(
+  LineChartBarData get lineChartSnoringLastWeek => LineChartBarData(
         isCurved: true,
         curveSmoothness: 0,
         color: Colors.green,
@@ -350,13 +386,13 @@ class SleepTrackerChart extends StatelessWidget {
         belowBarData:
             BarAreaData(show: true, color: Colors.green.withOpacity(0.2)),
         spots: const [
-          FlSpot(1, 16),
-          FlSpot(2, 18),
-          FlSpot(3, 19),
-          FlSpot(4, 18),
-          FlSpot(5, 17),
-          FlSpot(6, 16),
-          FlSpot(7, 16),
+          FlSpot(1, 60),
+          FlSpot(2, 35),
+          FlSpot(3, 60),
+          FlSpot(4, 66),
+          FlSpot(5, 50),
+          FlSpot(6, 10),
+          FlSpot(7, 20),
         ],
       );
 }

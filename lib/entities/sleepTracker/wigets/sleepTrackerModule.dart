@@ -3,6 +3,7 @@ import 'package:flopps/entities/sleepTracker/wigets/sleepTrackerChart.dart';
 import 'package:flopps/utils/ProjectColors.dart';
 import 'package:flopps/utils/Strings.dart';
 import 'package:flutter/material.dart';
+import 'package:switcher_button/switcher_button.dart';
 
 class SleepTrackerModule extends StatefulWidget {
   const SleepTrackerModule({Key? key}) : super(key: key);
@@ -12,8 +13,10 @@ class SleepTrackerModule extends StatefulWidget {
 }
 
 class _SleepTrackerModuleState extends State<SleepTrackerModule> {
+  bool trackerActive=true;
   @override
   Widget build(BuildContext context) {
+
     return Container(
       padding: const EdgeInsets.only(left: 15, right: 15, top: 10, bottom: 10),
       margin: const EdgeInsets.all(5),
@@ -41,15 +44,30 @@ class _SleepTrackerModuleState extends State<SleepTrackerModule> {
                     fontFamily: FontFamily.sourceSansPro,
                     color: Color(ProjectColors.white)),
               ),
-              Row(
-                children: [
-                  const Text(Strings.active,
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontFamily: FontFamily.sourceSansPro,
-                          color: Color(ProjectColors.white))),
-                  Switch(value: true, onChanged: (value) {}),
-                ],
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0, bottom: 12),
+                child: Row(
+                  children: [
+                     Text(trackerActive? Strings.active: Strings.notActive,
+                        style: const TextStyle(
+                            fontSize: 16,
+                            fontFamily: FontFamily.sourceSansPro,
+                            color: Color(ProjectColors.white))),
+                    const SizedBox(width: 5),
+                    SwitcherButton(
+                      value: trackerActive,
+                      offColor: const Color(ProjectColors.white),
+                      size: 40,
+                      onColor:
+                      const Color(ProjectColors.blue),
+                      onChange: (value) {
+                        setState(() {
+                          trackerActive=value;
+                        });
+                      },
+                    ),
+                  ],
+                ),
               )
             ],
           ),

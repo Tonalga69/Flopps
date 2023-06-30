@@ -1,6 +1,4 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flopps/entities/assistant/controllers/AssistantController.dart';
-import 'package:flopps/entities/users/controllers/userController.dart';
 import 'package:flopps/entities/users/repositories/AuthRepository.dart';
 import 'package:flopps/entities/users/repositories/UserRepository.dart';
 import 'package:flopps/firebase_options.dart';
