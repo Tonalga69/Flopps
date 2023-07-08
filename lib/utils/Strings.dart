@@ -52,6 +52,8 @@ class Collections{
   static const String assistant="Assistant";
   static const String events="Events";
   static const String availableAssistants= "Assistants";
+  static const String shopAsistants= "ShopAssistants";
+  static const String sleepTracker= "SleepTracker";
 }
 
 class FontFamily{

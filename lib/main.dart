@@ -1,4 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flopps/entities/sleepTracker/repositories/firebase.dart';
 import 'package:flopps/entities/users/repositories/AuthRepository.dart';
 import 'package:flopps/entities/users/repositories/UserRepository.dart';
 import 'package:flopps/firebase_options.dart';
@@ -7,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
-import 'entities/assistant/repository/AssistantRepository.dart';
+import 'entities/assistant/repository/assistant_repository.dart';
 import 'entities/users/repositories/storageRepository.dart';
 
 void main() {
@@ -22,6 +23,7 @@ void main() {
     Get.put(UserRepository());
     Get.put(StorageRepository());
     Get.put(AssistantRepository());
+    Get.put(SleepTrackerFirebaseRepository());
     FlutterNativeSplash.remove();
   });
   runApp(const MyApp());
