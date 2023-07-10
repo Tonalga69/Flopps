@@ -8,12 +8,15 @@ import 'package:permission_handler/permission_handler.dart';
 class AssistantController extends GetxController {
   static AssistantController get instance => Get.find();
 
-
-
-  late AssistantModel assistant;
+  AssistantModel? assistant;
   late List<AssistantModel> ownedAssistants;
   late List<AssistantModel> shopList;
 
+  @override
+  void onReady() {
+    setInitialAssistant();
+    getSelectedAssistant();
+  }
 
   void selectAssistant(String assistantUID) {
     AssistantRepository.instance.selectAssistant(assistantUID).then((result) {
@@ -24,33 +27,36 @@ class AssistantController extends GetxController {
     });
   }
 
-  void getSelectedAssistant() async{
-    AssistantRepository.instance.getSelectedAssistant();
-  }
-  void setInitialAssistant() async {
-    AssistantRepository.instance.setInitialAssistant();
+  Future<void> getSelectedAssistant() async {
+    final data = await AssistantRepository.instance.getSelectedAssistant();
+    if (data != null) {
+      assistant = AssistantModel.fromFirebase(data);
+    }
   }
 
-  void getOwnedAssistants() async {
+  Future<void> setInitialAssistant() async {
+    await AssistantRepository.instance.setInitialAssistant();
+  }
+
+  Future<List<AssistantModel>> getOwnedAssistants() async {
     final assistantList =
-    await AssistantRepository.instance.getOwnedAssistants();
+        await AssistantRepository.instance.getOwnedAssistants();
     ownedAssistants = assistantList.docs
         .map((doc) => AssistantModel.fromFirebase(doc))
         .toList();
+    return ownedAssistants;
   }
 
   void getShopAssistant() async {
     final assistantList =
-    await AssistantRepository.instance.getShopAssistants();
+        await AssistantRepository.instance.getShopAssistants();
     shopList = assistantList.docs
         .map((doc) => AssistantModel.fromFirebase(doc))
         .toList();
   }
 
   Future<bool> requestOverlayPermission() async {
-    final result = await Permission.systemAlertWindow
-        .request()
-        .isGranted;
+    final result = await Permission.systemAlertWindow.request().isGranted;
     return result;
   }
 
@@ -60,9 +66,7 @@ class AssistantController extends GetxController {
   }
 
   Future<bool> getNotificationPermission() async {
-    final result = await Permission.notification
-        .request()
-        .isGranted;
+    final result = await Permission.notification.request().isGranted;
     return result;
   }
 
@@ -72,9 +76,7 @@ class AssistantController extends GetxController {
   }
 
   Future<bool> requestMicrophonePermission() async {
-    final result = await Permission.microphone
-        .request()
-        .isGranted;
+    final result = await Permission.microphone.request().isGranted;
     return result;
   }
 }

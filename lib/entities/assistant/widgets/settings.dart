@@ -73,14 +73,15 @@ class _AssistantSettingsState extends State<AssistantSettings> {
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600)),
                         const Padding(padding: EdgeInsets.all(10)),
-                        const CircleAvatar(
+                        CircleAvatar(
                             radius: 45,
-                            backgroundImage:
-                                NetworkImage(Strings.defaultProfilePhoto)),
+                            backgroundImage: NetworkImage(
+                                _assistantController.assistant?.profilePhoto ??
+                                    Strings.defaultProfilePhoto)),
                         const Padding(padding: EdgeInsets.all(5)),
-                        const Text("Smile-less",
+                        Text(_assistantController.assistant?.name ?? "",
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: Color(ProjectColors.blue),
                                 fontFamily: FontFamily.sourceSansPro,
                                 fontSize: 14,

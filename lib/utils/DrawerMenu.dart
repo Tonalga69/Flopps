@@ -1,4 +1,5 @@
 import 'package:auth_buttons/auth_buttons.dart';
+import 'package:flopps/entities/assistant/controllers/AssistantController.dart';
 import 'package:flopps/entities/users/controllers/SignInController.dart';
 import 'package:flopps/entities/users/controllers/userController.dart';
 import 'package:flopps/entities/users/repositories/authMethod.dart';
@@ -14,7 +15,7 @@ class DrawerMenu extends StatelessWidget {
   DrawerMenu({Key? key}) : super(key: key);
   final userController = UserController.instance;
   final authController = Get.put(AuthController());
-
+  final assistantController = AssistantController.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +29,9 @@ class DrawerMenu extends StatelessWidget {
           children: [
             Container(
               decoration: const BoxDecoration(
-                color: Color(ProjectColors.darkBackground),
-                borderRadius: BorderRadius.only(topRight: Radius.circular(25))
-              ),
+                  color: Color(ProjectColors.darkBackground),
+                  borderRadius:
+                      BorderRadius.only(topRight: Radius.circular(25))),
               child: Row(
                 children: [
                   Expanded(
@@ -48,8 +49,8 @@ class DrawerMenu extends StatelessWidget {
                                 offset: Offset(4, 4),
                                 blurStyle: BlurStyle.normal)
                           ],
-                          borderRadius:
-                              BorderRadius.only(bottomRight: Radius.circular(130)),
+                          borderRadius: BorderRadius.only(
+                              bottomRight: Radius.circular(130)),
                           color: Color(ProjectColors.strongBlue)),
                       child: CircleAvatar(
                         backgroundImage: NetworkImage(
@@ -65,9 +66,10 @@ class DrawerMenu extends StatelessWidget {
                           height: 150,
                           padding: const EdgeInsets.only(
                               bottom: 30, left: 30, top: 30, right: 30),
-                          child: const CircleAvatar(
-                              backgroundImage:
-                                  NetworkImage(Strings.defaultProfilePhoto)))),
+                          child: CircleAvatar(
+                              backgroundImage: NetworkImage(
+                                  assistantController.assistant?.profilePhoto ??
+                                      Strings.defaultProfilePhoto)))),
                 ],
               ),
             ),
@@ -78,12 +80,11 @@ class DrawerMenu extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-
                       if (userController.user.authMethod == AuthMethod.google)
                         GoogleAuthButton(
                           onPressed: () {},
                           style: const AuthButtonStyle(
-                            margin: EdgeInsets.zero,
+                              margin: EdgeInsets.zero,
                               iconType: AuthIconType.secondary,
                               buttonType: AuthButtonType.icon,
                               iconBackground: Colors.transparent,
@@ -94,21 +95,26 @@ class DrawerMenu extends StatelessWidget {
                               separator: 0,
                               elevation: 0,
                               iconSize: 18),
-                        ) else
-                        const Icon(Icons.mail,
-                            color: Color(ProjectColors.blue), size: 18,),
-                      Text(userController.user.userName?? "", style: const TextStyle(
-                          color: Color(0xffffffff),
-                          fontSize: 14,
-                          fontFamily: FontFamily.sourceSansPro,
-
-                          fontWeight: FontWeight.w600
-                      ),),
+                        )
+                      else
+                        const Icon(
+                          Icons.mail,
+                          color: Color(ProjectColors.blue),
+                          size: 18,
+                        ),
+                      Text(
+                        userController.user.userName ?? "",
+                        style: const TextStyle(
+                            color: Color(0xffffffff),
+                            fontSize: 14,
+                            fontFamily: FontFamily.sourceSansPro,
+                            fontWeight: FontWeight.w600),
+                      ),
                     ],
                   ),
                 ),
                 Container(
-                 // margin: const EdgeInsets.only( top: 20),
+                  // margin: const EdgeInsets.only( top: 20),
                   height: 1,
                   color: const Color(ProjectColors.grayBackground),
                 ),

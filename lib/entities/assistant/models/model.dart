@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class AssistantModel{
 
   late final String uid;
-  late final Map<String, String> phrases;
+  late final Map<String, dynamic> phrases;
   late final String profilePhoto;
   late final String name;
 
@@ -16,6 +16,7 @@ class AssistantModel{
   factory AssistantModel.fromFirebase( DocumentSnapshot<Map<String, dynamic>> snapshot){
 
     final data= snapshot.data();
+
 
     return AssistantModel(
       name: data?["name"],

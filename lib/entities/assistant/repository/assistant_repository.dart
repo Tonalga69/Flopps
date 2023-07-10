@@ -49,7 +49,7 @@ class AssistantRepository extends GetxController {
       return;
     }
     final initialAssistant = await _db
-        .collection(Collections.availableAssistants)
+        .collection(Collections.assistant)
         .doc("Initial")
         .get();
     final data = initialAssistant.data();
@@ -58,7 +58,7 @@ class AssistantRepository extends GetxController {
           .collection(Collections.availableAssistants)
           .doc(_uid)
           .set(data);
-      _db
+     await _db
           .collection("${Collections.users}/$_uid/${Collections.assistant}")
           .doc("Initial")
           .set(data);

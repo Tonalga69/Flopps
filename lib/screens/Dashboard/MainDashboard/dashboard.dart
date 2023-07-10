@@ -20,13 +20,15 @@ class MainDashboard extends StatefulWidget {
 
 class _MainDashboardState extends State<MainDashboard> {
   final userController = Get.put(UserController());
-  final assistantController= Get.put(AssistantController());
+  final assistantController = Get.put(AssistantController());
   final appbarTitle = [Strings.events, Strings.sleepTracker];
   int pageIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    assistantController.setInitialAssistant();
+    assistantController
+        .setInitialAssistant()
+        .then((value) => assistantController.getSelectedAssistant());
     userController.getUserData().then((value) => null);
     return Scaffold(
       appBar: AppBar(
@@ -62,7 +64,6 @@ class _MainDashboardState extends State<MainDashboard> {
               color: const Color(ProjectColors.darkBackground),
               padding: const EdgeInsets.only(top: 5),
               child: const SleepTrackerScreen()),
-
         ],
       ),
     );
