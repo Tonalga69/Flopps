@@ -1,4 +1,5 @@
 import 'package:flopps/entities/assistant/controllers/AssistantController.dart';
+import 'package:flopps/entities/assistant/widgets/bottom_sheet_assistant.dart';
 import 'package:flopps/entities/assistant/widgets/styles.dart';
 import 'package:flopps/utils/ProjectColors.dart';
 import 'package:flutter/material.dart';
@@ -88,7 +89,19 @@ class _AssistantSettingsState extends State<AssistantSettings> {
                                 fontWeight: FontWeight.w600)),
                         const Padding(padding: EdgeInsets.all(10)),
                         OutlinedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              showModalBottomSheet(
+                                constraints: const BoxConstraints(minHeight: 200, maxWidth: 600),
+                                isScrollControlled: true,
+                                shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(15))),
+                                backgroundColor: Colors.transparent,
+                                useSafeArea: true,
+                                context: context,
+                                builder: (context) {
+                                  return const BottomSheetAssistant();
+                                },
+                              );
+                            },
                             style: ButtonStyle(
                                 fixedSize: MaterialStateProperty.all(
                                     const Size(100, 30)),

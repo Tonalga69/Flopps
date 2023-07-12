@@ -1,5 +1,7 @@
 import 'package:flopps/entities/assistant/controllers/AssistantController.dart';
+import 'package:flopps/entities/assistant/models/model.dart';
 import 'package:flopps/entities/assistant/widgets/assistant_item_buttom_sheet.dart';
+import 'package:flopps/entities/assistant/widgets/get_more_assistant_item.dart';
 import 'package:flopps/utils/ProjectColors.dart';
 import 'package:flopps/utils/Strings.dart';
 import 'package:flutter/material.dart';
@@ -16,8 +18,11 @@ class _BottomSheetAssistantState extends State<BottomSheetAssistant> {
 
   @override
   Widget build(BuildContext context) {
+
     return Container(
-      height: 200,
+      height: 250,
+
+      width: double.infinity,
       decoration: const BoxDecoration(
         color: Color(ProjectColors.darkBackground),
         borderRadius: BorderRadius.only(
@@ -34,45 +39,44 @@ class _BottomSheetAssistantState extends State<BottomSheetAssistant> {
             );
           }
           if (!snapshot.hasData) {
-            return const Text(
-              "Error, you shoud have at least one assistant, please contact support",
-              style: TextStyle(
-                  color: Colors.white, fontFamily: FontFamily.sourceSansPro),
-            );
+            return  Container();
           }
           if (snapshot.hasData) {
+            final data= snapshot.data?? List<AssistantModel>.empty();
             return Column(
               children: [
-                ListView.builder(
-                  itemBuilder: (context, index) {
-                    return AssistantItem(
-                        name: snapshot.data?[index].name,
-                        photoUrl: snapshot.data?[index].profilePhoto,
-                        onTap: () {
-                          assistantController
-                              .selectAssistant(snapshot.data?[index].uid ?? "Initial");
-                        });
-                  },
-                  scrollDirection: Axis.horizontal,
-                  itemCount: snapshot.data?.length,
+                Container(
+                  margin: const EdgeInsets.only(top: 10),
+                  height: 4,
+                  width: 20,
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(2))
+                  ),
                 ),
-                const Padding(padding: EdgeInsets.all(5)),
-                OutlinedButton(
-                    style: const ButtonStyle(
-                        backgroundColor:
-                            MaterialStatePropertyAll(Color(ProjectColors.blue)),
-                        shape: MaterialStatePropertyAll(RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(15))))),
-                    onPressed: () {
-                      Navigator.pop(context);
+                SizedBox(
+                  height: 200,
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: data.length+1,
+                    itemBuilder: (context, index) {
+
+                      if(index==data.length){
+                        return const GetMoreAssistantItem();
+                      }
+                      return AssistantItem(
+                          name: data[index].name,
+                          photoUrl: data[index].profilePhoto,
+                          onTap: () {
+                            assistantController
+                                .selectAssistant(data[index].uid);
+                            Navigator.pop(context);
+                          });
                     },
-                    child: const Text(
-                      "Close",
-                      style: TextStyle(
-                          fontFamily: FontFamily.sourceSansPro,
-                          color: Colors.white),
-                    ))
+
+                    scrollDirection: Axis.horizontal,
+                  ),
+                ),
               ],
             );
           }

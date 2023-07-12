@@ -22,6 +22,7 @@ class AssistantController extends GetxController {
     AssistantRepository.instance.selectAssistant(assistantUID).then((result) {
       if (result != null) {
         assistant = AssistantModel.fromFirebase(result);
+        return;
       }
       Get.showSnackbar(genericSnackBar(Strings.errorGetAssistant));
     });

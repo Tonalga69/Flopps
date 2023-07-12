@@ -13,15 +13,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76b60cba-fd6c-4450-869d-4c3c75da4bd9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/entities/assistant/widgets/assistant_item_buttom_sheet.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/entities/assistant/widgets/bottom_sheet_assistant.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/entities/assistant/widgets/get_more_assistant_item.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/entities/assistant/controllers/AssistantController.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/assistant/controllers/AssistantController.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/entities/assistant/models/model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/assistant/models/model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/entities/assistant/repository/assistant_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/assistant/repository/assistant_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/entities/assistant/widgets/assistant_item_buttom_sheet.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/assistant/widgets/assistant_item_buttom_sheet.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/entities/assistant/widgets/bottom_sheet_assistant.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/assistant/widgets/bottom_sheet_assistant.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/entities/assistant/widgets/settings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/assistant/widgets/settings.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/Dashboard/MainDashboard/dashboard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/Dashboard/MainDashboard/dashboard.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/DrawerMenu.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/DrawerMenu.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
