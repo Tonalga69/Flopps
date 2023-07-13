@@ -11,11 +11,21 @@ class AssistantController extends GetxController {
   AssistantModel? assistant;
   late List<AssistantModel> ownedAssistants;
   late List<AssistantModel> shopList;
+  late bool isActive =false;
 
   @override
   void onReady() {
     setInitialAssistant();
     getSelectedAssistant();
+    checkIfItsActive();
+  }
+
+  Future<bool> checkIfItsActive()async {
+    isActive=await AssistantRepository.instance.isActive();
+    return isActive;
+  }
+  Future<void> setIsActive(bool value)async{
+    isActive= await AssistantRepository.instance.setActive(value);
   }
 
   void selectAssistant(String assistantUID) {

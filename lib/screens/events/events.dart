@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../entities/events/widgets/eventsDashboard.dart';
 import '../../utils/ProjectColors.dart';
@@ -21,14 +20,6 @@ class EventsScreen extends StatelessWidget {
               Expanded(flex: 60, child: EventsDashboard()),
             ],
           ),
-          Container(
-            margin: const EdgeInsets.all(5),
-            alignment: AlignmentDirectional.bottomEnd,
-            child: FloatingActionButton(
-              onPressed: () {},
-              child: const Icon(FontAwesomeIcons.plus),
-            ),
-          )
         ],
       ),
     );

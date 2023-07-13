@@ -3,6 +3,7 @@ import 'package:flopps/entities/assistant/widgets/bottom_sheet_assistant.dart';
 import 'package:flopps/entities/assistant/widgets/styles.dart';
 import 'package:flopps/utils/ProjectColors.dart';
 import 'package:flutter/material.dart';
+import 'package:switcher_button/switcher_button.dart';
 import '../../../utils/Strings.dart';
 
 class AssistantSettings extends StatefulWidget {
@@ -21,15 +22,17 @@ class _AssistantSettingsState extends State<AssistantSettings> {
   setPermission() async {
     overlayPermission = await _assistantController.getOverlayPermission();
     notificationPermission =
-        await _assistantController.getNotificationPermission();
+    await _assistantController.getNotificationPermission();
     microphonePermission = await _assistantController.getMicroPhonePermission();
+    await _assistantController.getSelectedAssistant();
   }
+
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
       future: setPermission(),
-      builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+      builder: (BuildContext context, AsyncSnapshot<dynamic> _) {
         return Container(
           margin: const EdgeInsets.all(10),
           height: 244,
@@ -91,9 +94,12 @@ class _AssistantSettingsState extends State<AssistantSettings> {
                         OutlinedButton(
                             onPressed: () {
                               showModalBottomSheet(
-                                constraints: const BoxConstraints(minHeight: 200, maxWidth: 600),
+                                constraints: const BoxConstraints(
+                                    minHeight: 200, maxWidth: 600),
                                 isScrollControlled: true,
-                                shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(15))),
+                                shape: const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(15))),
                                 backgroundColor: Colors.transparent,
                                 useSafeArea: true,
                                 context: context,
@@ -115,7 +121,7 @@ class _AssistantSettingsState extends State<AssistantSettings> {
                                             Radius.circular(50))))),
                             child: Row(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                                MainAxisAlignment.spaceEvenly,
                                 children: const [
                                   Icon(
                                     Icons.edit,
@@ -139,16 +145,39 @@ class _AssistantSettingsState extends State<AssistantSettings> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        const Text(Strings.active,
-                            style: TextStyle(
-                                fontFamily: FontFamily.sourceSansPro,
-                                color: Color(ProjectColors.blackBackground))),
-                        Switch(
-                          value: true,
-                          trackColor: const MaterialStatePropertyAll(
-                              Color(ProjectColors.lightBlue)),
-                          onChanged: (value) {},
-                        )
+                         Padding(
+                          padding: const EdgeInsets.all(5),
+                          child: Text(_assistantController.isActive? Strings.active: Strings.notActive,
+                              style: const TextStyle(
+                                  fontFamily: FontFamily.sourceSansPro,
+                                  color: Color(ProjectColors.blackBackground))),
+                        ),
+                         Padding(
+                          padding:const EdgeInsets.all(5),
+                          child:
+                          FutureBuilder(
+                            initialData: null,
+                            future: _assistantController.checkIfItsActive(),
+                            builder: (context, snapshot) {
+                              if(snapshot.hasData){
+                                return SwitcherButton(
+                                  value: _assistantController.isActive,
+                                  offColor: const Color(ProjectColors.blackBackground),
+                                  size: 48,
+                                  onColor:
+                                  const Color(ProjectColors.blue),
+                                  onChange: (value) {
+                                    setState(() {
+                                      _assistantController.setIsActive(value);
+
+                                    });
+                                  },
+                                );
+                              }
+                              return Container();
+                            }
+                          )
+                        ),
                       ],
                     ),
                     Row(

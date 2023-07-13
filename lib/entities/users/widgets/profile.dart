@@ -97,7 +97,7 @@ class _UserProfileState extends State<UserProfile> {
                           child: Stack(children: [
                             CircleAvatar(
                               backgroundImage: NetworkImage(
-                                  snapshot.data?.profilePhoto ??
+                                  UserController.instance.user.profilePhoto??
                                       Strings.defaultProfilePhoto),
                               radius: 60,
                             ),

@@ -4,6 +4,7 @@ import 'package:flopps/screens/sleepTracker/sleepTrackerScreen.dart';
 import 'package:flopps/utils/DrawerMenu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 import '../../../entities/users/controllers/userController.dart';
@@ -31,6 +32,10 @@ class _MainDashboardState extends State<MainDashboard> {
         .then((value) => assistantController.getSelectedAssistant());
     userController.getUserData().then((value) => null);
     return Scaffold(
+      floatingActionButton: pageIndex == 0
+          ? FloatingActionButton(
+              onPressed: () {}, child: const Icon(FontAwesomeIcons.plus))
+          : null,
       appBar: AppBar(
           actions: [
             FutureBuilder(

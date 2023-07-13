@@ -1,7 +1,5 @@
-
 import 'package:flopps/screens/loginScreen/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../utils/ProjectColors.dart';
 import '../../utils/Strings.dart';
@@ -14,53 +12,51 @@ class LoginPortrait extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Stack(children: [
-          Container(
-            width: MediaQuery.of(context).size.width,
-            decoration: const BoxDecoration(
-                gradient: LinearGradient(colors: [
-                  Color(ProjectColors.lightBlue),
-                  Color(ProjectColors.strongBlue)
-                ], begin: Alignment.topLeft, end: Alignment.topRight)),
+      Container(
+        width: MediaQuery.of(context).size.width,
+        decoration: const BoxDecoration(
+            gradient: LinearGradient(colors: [
+          Color(ProjectColors.lightBlue),
+          Color(ProjectColors.strongBlue)
+        ], begin: Alignment.topLeft, end: Alignment.topRight)),
+      ),
+      Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          const Expanded(
+            flex: 45,
+            child: CircleAvatar(
+                backgroundImage:
+                    AssetImage("lib/assets/images/ic_launcher.png"),
+                radius: 50),
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              const Expanded(
-                  flex: 45,
-                  child: Icon(
-                    FontAwesomeIcons.accusoft,
-                    size: 48,
-                    color: Color(0xffffffff),
-
-                  )),
-              Expanded(
-                flex: 55,
-                child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    padding: const EdgeInsets.all(20),
-                    decoration: formBoxStyle,
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          //  const Padding(padding: EdgeInsets.all(20)),
-                          const Text(
-                            Strings.login,
-                            style: TextStyle(
-                                color: Color(0xffffffff),
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16,
-                                fontFamily: "sourceSansPro"
-                            ),
-                          ),
-                          Container(
-                              padding: const EdgeInsets.only(left: 20, right: 20),
-                              child: const LoginFormPortrait()),
-                        ],
+          Expanded(
+            flex: 55,
+            child: Container(
+                width: MediaQuery.of(context).size.width,
+                padding: const EdgeInsets.all(20),
+                decoration: formBoxStyle,
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      //  const Padding(padding: EdgeInsets.all(20)),
+                      const Text(
+                        Strings.login,
+                        style: TextStyle(
+                            color: Color(0xffffffff),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                            fontFamily: "sourceSansPro"),
                       ),
-                    )),
-              )
-            ],
-          ),
-        ]));
+                      Container(
+                          padding: const EdgeInsets.only(left: 20, right: 20),
+                          child: const LoginFormPortrait()),
+                    ],
+                  ),
+                )),
+          )
+        ],
+      ),
+    ]));
   }
 }
