@@ -1,3 +1,4 @@
+import 'package:flopps/entities/users/widgets/fiendsList.dart';
 import 'package:flutter/material.dart';
 
 import '../../entities/events/widgets/eventsDashboard.dart';
@@ -17,6 +18,7 @@ class EventsScreen extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: const [
+              Expanded(flex: 40, child: FriendsListWidget() ),
               Expanded(flex: 60, child: EventsDashboard()),
             ],
           ),

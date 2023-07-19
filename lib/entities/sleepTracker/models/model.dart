@@ -2,8 +2,16 @@ import 'dart:ffi';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+enum StatusType { awake, sleeping, none }
+
+final _stringToStatus = {
+  "awake": StatusType.awake,
+  "sleeping": StatusType.sleeping,
+  "none": StatusType.none
+};
+
 class SleepTracker {
-  late final String uid;
+  late final String? uid;
   late Double? averageSleepingHours;
   late Double? averageSnoring;
   late Map<Int, Double>? awakeHours;
@@ -12,9 +20,12 @@ class SleepTracker {
   late Map<Int, Double>? snoringLastWeek;
   late Timestamp? timeToSleep;
   late Timestamp? timeToWakeUp;
+  late Timestamp? timeWokenUp;
+  late Timestamp? timeSlept;
+  late StatusType? status;
 
   SleepTracker(
-      {required this.uid,
+      {this.uid,
       this.averageSleepingHours,
       this.averageSnoring,
       this.awakeHours,
@@ -22,24 +33,41 @@ class SleepTracker {
       this.snoringTimes,
       this.snoringLastWeek,
       this.timeToSleep,
-      this.timeToWakeUp});
+      this.timeToWakeUp,
+      this.status,
+      this.timeWokenUp,
+      this.timeSlept});
 
   factory SleepTracker.fromFirebase(
       DocumentSnapshot<Map<String, dynamic>> snapshot) {
     final data = snapshot.data();
     return SleepTracker(
-        uid: data?["uid"],
-        averageSleepingHours: data?["averageSleepingHours"],
-        averageSnoring: data?["averageSnoring"],
-        awakeHours: data?["awakeHours"],
-        sleepingHours: data?["sleepingHours"],
-        snoringLastWeek: data?["snoringLastWeek"],
-        snoringTimes: data?["snoringTimes"],
-        timeToSleep: data?["timeToSleep"],
-        timeToWakeUp: data?["timeToWakeUp"]);
+      uid: data?["uid"],
+      averageSleepingHours: data?["averageSleepingHours"],
+      averageSnoring: data?["averageSnoring"],
+      awakeHours: data?["awakeHours"],
+      sleepingHours: data?["sleepingHours"],
+      snoringLastWeek: data?["snoringLastWeek"],
+      snoringTimes: data?["snoringTimes"],
+      timeToSleep: data?["timeToSleep"],
+      timeToWakeUp: data?["timeToWakeUp"],
+      status: getStatus(data?["status"]),
+      timeWokenUp: data?["timeWokenUp"],
+      timeSlept: data?["timeSlept"],
+    );
   }
 
-  toJson(){
+  static StatusType getStatus(String? status) {
+    return _stringToStatus[status] ?? StatusType.none;
+  }
+
+  String _setStatus() {
+    return _stringToStatus.keys.firstWhere(
+        (key) => _stringToStatus[key] == status,
+        orElse: () => "none");
+  }
+
+  toJson() {
     return {
       "uid": uid,
       "averageSleepingHours": averageSleepingHours,
@@ -49,7 +77,8 @@ class SleepTracker {
       "snoringLastWeek": snoringLastWeek,
       "snoringTimes": snoringTimes,
       "timeToSleep": timeToSleep,
-      "timeToWakeUp": timeToWakeUp
+      "timeToWakeUp": timeToWakeUp,
+      "status": _setStatus()
     };
   }
 }

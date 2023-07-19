@@ -69,4 +69,8 @@ class UserController extends GetxController {
         .updateUserFields(uid: user.uid, map: map)
         .then((value) {});
   }
+
+  void updateFriendsList(String uid, frienduid, friendMail) async {
+    await UserRepository.instance.updateFriendsList(uid, frienduid, friendMail);
+  }
 }

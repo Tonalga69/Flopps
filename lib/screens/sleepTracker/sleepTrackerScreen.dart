@@ -1,6 +1,8 @@
+import 'package:flopps/entities/sleepTracker/controllers/tracker_controller.dart';
 import 'package:flopps/entities/sleepTracker/wigets/sleepTrackerModule.dart';
 import 'package:flopps/utils/ProjectColors.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SleepTrackerScreen extends StatefulWidget {
   const SleepTrackerScreen({Key? key}) : super(key: key);
@@ -10,8 +12,10 @@ class SleepTrackerScreen extends StatefulWidget {
 }
 
 class _SleepTrackerScreenState extends State<SleepTrackerScreen> {
+  final _sleepTrackerController= Get.put(TrackerController());
   @override
   Widget build(BuildContext context) {
+    _sleepTrackerController.onReady();
     return SingleChildScrollView(
       child: Container(
         color: const Color(ProjectColors.darkBackground),

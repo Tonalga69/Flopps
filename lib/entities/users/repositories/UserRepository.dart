@@ -1,4 +1,4 @@
-
+import 'dart:html';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flopps/entities/users/model.dart';
@@ -20,16 +20,16 @@ class UserRepository extends GetxController {
       Get.showSnackbar(errorCreatingAccount);
     });
   }
-  Future<Object?> updateUserFields({required String? uid, required Map<String, dynamic> map})async{
-    try{
-    await db.collection(Collections.users).doc(uid).update(map);
-  } catch(e){
+
+  Future<Object?> updateUserFields(
+      {required String? uid, required Map<String, dynamic> map}) async {
+    try {
+      await db.collection(Collections.users).doc(uid).update(map);
+    } catch (e) {
       return e;
     }
     return null;
-
   }
-
 
   Future<void> createOrNotUser(UserModel user) async {
     DocumentSnapshot document =
@@ -39,12 +39,26 @@ class UserRepository extends GetxController {
     }
   }
 
+  Future<List<UserModel>?> updateFriendsList(
+      String uid, friendUid, friendMail) async {
+    final friend = UserModel(uid: friendUid, email: friendMail);
+    await db
+        .collection(Collections.users)
+        .doc(uid)
+        .update({"friends": FieldValue.arrayUnion(friend.toJson())});
+
+
+  final snapshot = await db.collection(Collections.users).doc(uid).get();
+  return UserModel.fromFirestore(snapshot).friends;
+
+}
+
   Future<UserModel> getDetailedUserData({required String uid}) async {
-    DocumentSnapshot<Map<String, dynamic>> snapshot= await db.collection(Collections.users).doc(uid).get();
-    if(snapshot.exists){
+    DocumentSnapshot<Map<String, dynamic>> snapshot =
+        await db.collection(Collections.users).doc(uid).get();
+    if (snapshot.exists) {
       return UserModel.fromFirestore(snapshot);
     }
     return UserModel(uid: "", email: "");
-
   }
 }

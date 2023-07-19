@@ -1,4 +1,4 @@
-import 'package:flopps/entities/sleepTracker/wigets/sleepTimer.dart';
+import 'package:flopps/entities/sleepTracker/wigets/sleep_timer.dart';
 import 'package:flopps/entities/sleepTracker/wigets/sleepTrackerChart.dart';
 import 'package:flopps/utils/ProjectColors.dart';
 import 'package:flopps/utils/Strings.dart';
@@ -68,6 +68,7 @@ class _SleepTrackerModuleState extends State<SleepTrackerModule> {
                     ),
                   ],
                 ),
+
               )
             ],
           ),

@@ -45,9 +45,16 @@ class Strings {
   static const String awakeHours="Awake hours";
   static const String averageSleepingHours= "Average sleeping hours";
   static const String sleepingHours="SleepingHours";
+  static const String timeToSleep= "Time to sleep";
+  static const String timeToWake= "Time to wake up";
+  static const String timeRemaining= "Time remaining";
+  static const String hours="hours";
+  static const String minutes="minutes";
+  static const String friends="Friends";
 }
 
 class Collections{
+
   static const String users="Users";
   static const String assistant="Assistant";
   static const String events="Events";

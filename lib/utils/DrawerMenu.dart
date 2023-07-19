@@ -129,6 +129,13 @@ class DrawerMenu extends StatelessWidget {
                   subtitle: const Text("Change your user name, photo, etc",
                       style: TextStyle(color: Color(0xffffffff))),
                   onTap: () {
+                    if(Get.currentRoute=="/MainDashboard"){
+                      Get.back();
+                      Get.to(() => const Settings(),
+                          transition: Transition.rightToLeft,
+                          duration: const Duration(milliseconds: 500));
+                    }
+
                     Get.off(() => const Settings(),
                         transition: Transition.rightToLeft,
                         duration: const Duration(milliseconds: 500));
@@ -154,9 +161,13 @@ class DrawerMenu extends StatelessWidget {
                   subtitle: const Text("Go to home screen",
                       style: TextStyle(color: Color(0xffffffff))),
                   onTap: () {
+                    Get.currentRoute=="/MainDashboard"?
                     Get.off(() => const MainDashboard(),
                         transition: Transition.rightToLeft,
-                        duration: const Duration(milliseconds: 500));
+                        duration: const Duration(milliseconds: 500)):
+                    Get.back(closeOverlays: true, canPop: true);
+                    Get.back(closeOverlays: true, canPop: true);
+
                   },
                   trailing: const Icon(
                     Icons.home_filled,

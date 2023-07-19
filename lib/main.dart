@@ -9,6 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'entities/assistant/repository/assistant_repository.dart';
+import 'entities/sleepTracker/repositories/local_storage.dart';
 import 'entities/users/repositories/storageRepository.dart';
 
 void main() {
@@ -24,10 +25,13 @@ void main() {
     Get.put(StorageRepository());
     Get.put(AssistantRepository());
     Get.put(SleepTrackerFirebaseRepository());
+    Get.put(SleepTrackerLocalStorageRepository());
     FlutterNativeSplash.remove();
   });
   runApp(const MyApp());
 }
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);

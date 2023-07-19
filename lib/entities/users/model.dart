@@ -8,10 +8,11 @@ class UserModel{
   late String? profilePhoto;
   late final String? authMethod;
   late List<UserModel>? friends;
+  late List<UserModel>? pendingRequests;
 
 
 
-  UserModel({ required this.uid, this.userName, required this.email, this.profilePhoto, this.authMethod, this.friends});
+  UserModel({ required this.uid, this.userName, required this.email, this.profilePhoto, this.authMethod, this.friends, this.pendingRequests});
 
   factory UserModel.fromFirestore(
       DocumentSnapshot<Map<String, dynamic>> snapshot,
@@ -23,7 +24,8 @@ class UserModel{
       userName: data?['userName'],
       profilePhoto: data?['profilePhoto'],
       authMethod: data?['authMethod'],
-      friends: data?["friends"]
+      friends: data?["friends"],
+        pendingRequests: data?["pendingRequests"]
     );
   }
 
@@ -32,7 +34,7 @@ class UserModel{
       "uid": uid,
       "userName": userName,
       "email": email,
-      if(profilePhoto != null) "profilePhoto": profilePhoto
+      if(profilePhoto != null) "profilePhoto": profilePhoto,
     };
   }
 }
