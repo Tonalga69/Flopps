@@ -24,12 +24,19 @@ class LoginLandScape extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         // crossAxisAlignment: CrossAxisAlignment.,
         children: [
-          const Expanded(
+          Expanded(
             flex: 35,
-            child: CircleAvatar(
-                backgroundImage:
-                    AssetImage("lib/assets/images/ic_launcher.png"),
-                radius: 50),
+            child: Container(
+              alignment: Alignment.center,
+              child:  const SizedBox(
+                height: 100,
+                width: 100,
+                child: CircleAvatar(
+                  backgroundImage:
+                  AssetImage("lib/assets/images/logo.png",),
+                ),
+              ),
+            ),
           ),
           Expanded(
             flex: 65,

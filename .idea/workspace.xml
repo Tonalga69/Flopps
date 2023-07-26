@@ -13,7 +13,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76b60cba-fd6c-4450-869d-4c3c75da4bd9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/entities/events/widgets/event_item.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/theme.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/entities/events/widgets/closestEvent.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/events/widgets/closestEvent.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/entities/events/widgets/eventsDashboard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/events/widgets/eventsDashboard.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/entities/sleepTracker/controllers/tracker_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/sleepTracker/controllers/tracker_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/entities/sleepTracker/wigets/sleep_timer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/sleepTracker/wigets/sleep_timer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/entities/users/controllers/SignInController.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/users/controllers/SignInController.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/entities/users/repositories/UserRepository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/users/repositories/UserRepository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/entities/users/widgets/fiendsList.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/users/widgets/fiendsList.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/entities/users/widgets/friends_list_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/users/widgets/friends_list_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/entities/users/widgets/profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/users/widgets/profile.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/Dashboard/MainDashboard/dashboard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/Dashboard/MainDashboard/dashboard.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/events/events.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/events/events.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/loginScreen/LoginLandScape.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/loginScreen/LoginLandScape.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/loginScreen/LoginPortrait.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/loginScreen/LoginPortrait.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/settings/Settings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/settings/Settings.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/DrawerMenu.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/DrawerMenu.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/Strings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/Strings.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +104,7 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/scr/flutter&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pathVariables&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;experimental&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
 }</component>

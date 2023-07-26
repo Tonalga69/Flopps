@@ -13,15 +13,11 @@ class EventsScreen extends StatelessWidget {
       width: double.infinity,
       height: double.infinity,
       color: const Color(ProjectColors.darkBackground),
-      child: Stack(
-        children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: const [
-              Expanded(flex: 40, child: FriendsListWidget() ),
-              Expanded(flex: 60, child: EventsDashboard()),
-            ],
-          ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: const [
+          SizedBox(height: 150, child: FriendsListWidget()),
+          Expanded(flex: 1, child: EventsDashboard()),
         ],
       ),
     );

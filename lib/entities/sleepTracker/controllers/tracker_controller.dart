@@ -78,8 +78,10 @@ class TrackerController extends GetxController {
   }
 
   void updateTimeTo(BuildContext context) async {
-    final TimeOfDay? timePicked =
-        await showTimePicker(context: context, initialTime: TimeOfDay.now());
+    final TimeOfDay? timePicked =await showTimePicker(context: context, initialTime: TimeOfDay.now(), builder: (context, child) {
+      return TimePickerDialog(initialTime: TimeOfDay.now(), );
+    },);
+
     if (timePicked != null) {
       isSleeping
           ? tracker.timeToSleep = Timestamp.fromDate(DateTime(

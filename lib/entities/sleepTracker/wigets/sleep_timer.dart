@@ -22,7 +22,7 @@ class _SleepTimerState extends State<SleepTimer> {
   Widget build(BuildContext context) {
     _trackerController.getTimerIsActive();
     return Container(
-        height: 125,
+        height: 135,
         width: double.infinity,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
@@ -125,6 +125,7 @@ class _SleepTimerState extends State<SleepTimer> {
                     )),
                 GetBuilder<TrackerController>(
                   builder: (controller) => Text(
+                    softWrap: true,
                     controller.isSleeping
                         ? remainingTime(
                             controller.tracker.timeToSleep?.toDate().hour ?? 0)
@@ -159,9 +160,11 @@ class _SleepTimerState extends State<SleepTimer> {
                   init: TrackerController(),
                   builder: (controller) => controller.isSleeping
                       ? Text(
+
                           "${controller.tracker.timeToSleep?.toDate().hour.toString()}:${(controller.tracker.timeToSleep?.toDate().minute).toString().padLeft(2, "0")}",
                           style: const TextStyle(
                               color: Color(ProjectColors.white)),
+                    softWrap: true,
                         )
                       : Text(
                           "${controller.tracker.timeToWakeUp?.toDate().hour.toString()}:${(controller.tracker.timeToWakeUp?.toDate().minute).toString().padLeft(2, "0")}",

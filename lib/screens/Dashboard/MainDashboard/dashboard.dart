@@ -30,6 +30,10 @@ class _MainDashboardState extends State<MainDashboard> with WidgetsBindingObserv
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
   }
 
 
@@ -55,7 +59,7 @@ class _MainDashboardState extends State<MainDashboard> with WidgetsBindingObserv
     return Scaffold(
       floatingActionButton: pageIndex == 0
           ? FloatingActionButton(
-              onPressed: () {}, child: const Icon(FontAwesomeIcons.plus))
+              onPressed: () {}, child: const Icon(FontAwesomeIcons.plus, color: Colors.white,))
           : null,
       appBar: AppBar(
           actions: [

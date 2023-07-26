@@ -19,6 +19,18 @@ class Settings extends StatefulWidget {
 class _SettingsState extends State<Settings> {
   final controllerAssistant = Get.put(AssistantController());
   final controllerUser = Get.put(UserController());
+
+
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+
+  }
+
   @override
   Widget build(BuildContext context) {
     controllerUser.getUserData().then((value) => null);

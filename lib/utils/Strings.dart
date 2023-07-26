@@ -17,6 +17,7 @@ class Strings {
   static const String errorSignInAccount="There was a error at signing in. \n Try again";
   static const String invalidPassword="User and password not valid";
   static const String defaultProfilePhoto="https://firebasestorage.googleapis.com/v0/b/athenas-307b8.appspot.com/o/defaultProfileImage%2Fsandia.jpg?alt=media&token=97a406bb-dabd-45cd-930d-b584e904f109";
+  static const String defaultProfilePhoto2="https://firebasestorage.googleapis.com/v0/b/athenas-307b8.appspot.com/o/defaultProfileImage%2Fsertufloppita.jpg?alt=media&token=fd553254-c6be-494e-b504-8d5dd086fbdf";
   static const String writeUserName= "Write your user name";
   static const String associatedEmail= "Associated to: ";
   static const String authMethod= "Auth method: ";
@@ -51,6 +52,14 @@ class Strings {
   static const String hours="hours";
   static const String minutes="minutes";
   static const String friends="Friends";
+  static const String topFriends="Top friends";
+  static const String nearestEvent="Nearest Event:";
+  static const String open="Open";
+  static const String noMoreEvents="No more events";
+  static const String otherGuests="Other guests: ";
+  static const String iWillAssist="I will assist";
+  static const String iWillNotAssist="I Won´t assist";
+  static const String pending="Pending";
 }
 
 class Collections{

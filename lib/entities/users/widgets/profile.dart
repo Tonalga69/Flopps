@@ -233,7 +233,8 @@ class _UserProfileState extends State<UserProfile> {
                   SizedBox(
                     height: 120,
                     child: SfBarcodeGenerator(
-                      textStyle: const TextStyle(fontSize: 10),
+                      barColor: const Color(ProjectColors.darkBackground),
+                      textStyle: const TextStyle(fontSize: 10, color: Colors.black),
                       value: snapshot.data?.uid,
                       symbology: QRCode(),
                       showValue: true,

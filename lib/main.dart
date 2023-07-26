@@ -4,6 +4,7 @@ import 'package:flopps/entities/users/repositories/AuthRepository.dart';
 import 'package:flopps/entities/users/repositories/UserRepository.dart';
 import 'package:flopps/firebase_options.dart';
 import 'package:flopps/screens/loginScreen/LoginMain.dart';
+import 'package:flopps/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -38,9 +39,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return  GetMaterialApp(
         themeMode: ThemeMode.dark,
         debugShowCheckedModeBanner: false,
-        home: LoginMain());
+        theme: theme,
+        home: const LoginMain());
   }
 }

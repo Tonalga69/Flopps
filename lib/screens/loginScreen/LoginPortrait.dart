@@ -23,14 +23,22 @@ class LoginPortrait extends StatelessWidget {
       Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          const Expanded(
+            Expanded(
             flex: 45,
-            child: CircleAvatar(
-                backgroundImage:
-                    AssetImage("lib/assets/images/ic_launcher.png"),
-                radius: 50),
+            child: Container(
+              alignment: Alignment.center,
+              child:  const SizedBox(
+                height: 100,
+                width: 100,
+                child: CircleAvatar(
+                    backgroundImage:
+                        AssetImage("lib/assets/images/logo.png",),
+                   ),
+              ),
+            ),
           ),
           Expanded(
+
             flex: 55,
             child: Container(
                 width: MediaQuery.of(context).size.width,

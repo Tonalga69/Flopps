@@ -8,7 +8,6 @@ import 'package:flopps/screens/settings/Settings.dart';
 import 'package:flopps/utils/ProjectColors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'Strings.dart';
 
 class DrawerMenu extends StatelessWidget {
@@ -52,11 +51,15 @@ class DrawerMenu extends StatelessWidget {
                           borderRadius: BorderRadius.only(
                               bottomRight: Radius.circular(130)),
                           color: Color(ProjectColors.strongBlue)),
-                      child: CircleAvatar(
-                        backgroundImage: NetworkImage(
-                            userController.user.profilePhoto ??
-                                Strings.defaultProfilePhoto),
-                        radius: 60,
+                      child: SizedBox(
+                        width: 48,
+                        height: 48,
+                        child: CircleAvatar(
+                          backgroundImage: NetworkImage(
+                              userController.user.profilePhoto ??
+                                  Strings.defaultProfilePhoto),
+
+                        ),
                       ),
                     ),
                   ),
@@ -179,6 +182,44 @@ class DrawerMenu extends StatelessWidget {
                   color: const Color(ProjectColors.grayBackground),
                   width: double.infinity - 100,
                 ),
+
+                ListTile(
+                  title: const Text(
+                    "Social",
+                    style: TextStyle(
+                      color: Color(0xffffffff),
+                    ),
+                  ),
+                  style: ListTileStyle.drawer,
+                  subtitle: const Text("Accept requests or connect to others",
+                      style: TextStyle(color: Color(0xffffffff))),
+                  onTap: () {
+                    Get.currentRoute=="/MainDashboard"?
+                    Get.off(() => const MainDashboard(),
+                        transition: Transition.rightToLeft,
+                        duration: const Duration(milliseconds: 500)):
+                    Get.back(closeOverlays: true, canPop: true);
+                    Get.back(closeOverlays: true, canPop: true);
+
+                  },
+                  trailing: const Icon(
+                    Icons.people,
+                    color: Color(ProjectColors.grayBackground),
+                  ),
+                ),
+
+
+                Container(
+                  height: 3,
+                  width: 25,
+                  margin: const EdgeInsets.only(top: 10),
+                  decoration: const BoxDecoration(
+                    color:
+                      Color(ProjectColors.grayBackground), 
+                    borderRadius: BorderRadius.all(Radius.circular(5))
+                  ),
+                ),
+
                 ListTile(
                   title: const Text(
                     "Log out",
@@ -188,7 +229,7 @@ class DrawerMenu extends StatelessWidget {
                   ),
                   style: ListTileStyle.drawer,
                   onTap: () {
-                    authController.logOut();
+                    authController.logOut(context);
                   },
                   subtitle: const Text("End this session",
                       style: TextStyle(color: Color(0xffffffff))),

@@ -11,9 +11,6 @@
         android:requestLegacyExternalStorage="true"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
-        <service
-            android:name="com.phan_tech.flutter_overlay_apps.OverlayService"
-            android:exported="false" />
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
