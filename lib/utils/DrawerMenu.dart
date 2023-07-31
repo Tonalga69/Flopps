@@ -5,6 +5,7 @@ import 'package:flopps/entities/users/controllers/userController.dart';
 import 'package:flopps/entities/users/repositories/authMethod.dart';
 import 'package:flopps/screens/Dashboard/MainDashboard/dashboard.dart';
 import 'package:flopps/screens/settings/Settings.dart';
+import 'package:flopps/screens/social/social_screen.dart';
 import 'package:flopps/utils/ProjectColors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -168,8 +169,8 @@ class DrawerMenu extends StatelessWidget {
                     Get.off(() => const MainDashboard(),
                         transition: Transition.rightToLeft,
                         duration: const Duration(milliseconds: 500)):
-                    Get.back(closeOverlays: true, canPop: true);
-                    Get.back(closeOverlays: true, canPop: true);
+                    Get.back(closeOverlays: false, canPop: true);
+                    Get.back(closeOverlays: false, canPop: true);
 
                   },
                   trailing: const Icon(
@@ -194,12 +195,16 @@ class DrawerMenu extends StatelessWidget {
                   subtitle: const Text("Accept requests or connect to others",
                       style: TextStyle(color: Color(0xffffffff))),
                   onTap: () {
-                    Get.currentRoute=="/MainDashboard"?
-                    Get.off(() => const MainDashboard(),
+                    if(Get.currentRoute=="/MainDashboard"){
+                      Get.back();
+                      Get.to(() =>  SocialScreen(),
+                          transition: Transition.rightToLeft,
+                          duration: const Duration(milliseconds: 500));
+                    }
+
+                    Get.off(() =>  SocialScreen(),
                         transition: Transition.rightToLeft,
-                        duration: const Duration(milliseconds: 500)):
-                    Get.back(closeOverlays: true, canPop: true);
-                    Get.back(closeOverlays: true, canPop: true);
+                        duration: const Duration(milliseconds: 500));
 
                   },
                   trailing: const Icon(

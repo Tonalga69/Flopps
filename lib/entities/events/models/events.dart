@@ -9,7 +9,7 @@ class Events {
   late final List<String>? assistantsIDs;
   late final String hostName;
   late final String hostID;
-  late final String hostProfilePhoto;
+  late final String? hostProfilePhoto;
 
   Events(
       {required this.name,
@@ -20,7 +20,7 @@ class Events {
       this.assistantsIDs,
       required this.hostName,
       required this.hostID,
-      required this.hostProfilePhoto});
+        this.hostProfilePhoto});
 
   factory Events.fromFirebase(DocumentSnapshot<Map<String, dynamic>> snapshot) {
     final data = snapshot.data();

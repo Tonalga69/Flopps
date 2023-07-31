@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flopps/utils/ProjectColors.dart';
 import 'package:flopps/utils/Strings.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,7 @@ class _FriendsListItemState extends State<FriendsListItem> {
                 height: 48,
                 width: 48,
                 child: CircleAvatar(
-                  backgroundImage: NetworkImage(Strings.defaultProfilePhoto),
+                  backgroundImage: CachedNetworkImageProvider(Strings.defaultProfilePhoto),
                 ),
               ),
               Positioned(
@@ -39,7 +40,7 @@ class _FriendsListItemState extends State<FriendsListItem> {
                     height: 30,
                     child: CircleAvatar(
                       backgroundImage:
-                          NetworkImage(Strings.defaultProfilePhoto),
+                          CachedNetworkImageProvider(Strings.defaultProfilePhoto),
                     ),
                   )),
             ],

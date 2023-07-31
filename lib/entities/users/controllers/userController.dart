@@ -73,4 +73,26 @@ class UserController extends GetxController {
   void updateFriendsList(String uid, frienduid, friendMail) async {
     await UserRepository.instance.updateFriendsList(uid, frienduid, friendMail);
   }
+
+  void sendFriendRequestTo(String uid, UserModel sender) async {
+    await UserRepository.instance.sendFriendRequestTo(uid: uid, sender: sender);
+  }
+
+  void stopBeingFriends(UserModel me , UserModel friend) async {
+    await UserRepository.instance.stopBeingFriends(me, friend);
+  }
+  void cancelFriendRequest(String frienduid, UserModel me) async {
+    await UserRepository.instance.cancelFriendRequest(frienduid, me);
+  }
+
+  Future<List<UserModel>?> getUserQuery(String name) async {
+    try {
+      return await UserRepository.instance.getUserQuery(name, user.userName?? "");
+    } catch (e) {
+      print(e);
+      return null;
+    }
+
+}
+
 }

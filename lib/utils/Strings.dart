@@ -60,6 +60,8 @@ class Strings {
   static const String iWillAssist="I will assist";
   static const String iWillNotAssist="I Won´t assist";
   static const String pending="Pending";
+  static const String youWillBeNotified="You will be notified when it's time to sleep or wake up";
+  static const String friendRequest="Friends request";
 }
 
 class Collections{
@@ -68,7 +70,7 @@ class Collections{
   static const String assistant="Assistant";
   static const String events="Events";
   static const String availableAssistants= "Assistants";
-  static const String shopAsistants= "ShopAssistants";
+  static const String shopAssistants= "ShopAssistants";
   static const String sleepTracker= "SleepTracker";
 }
 

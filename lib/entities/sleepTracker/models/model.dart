@@ -18,10 +18,10 @@ class SleepTracker {
   late Map<Int, Double>? sleepingHours;
   late Map<Int, Double>? snoringTimes;
   late Map<Int, Double>? snoringLastWeek;
-  late Timestamp? timeToSleep;
-  late Timestamp? timeToWakeUp;
-  late Timestamp? timeWokenUp;
-  late Timestamp? timeSlept;
+  Timestamp? timeToSleep = Timestamp.fromDate(DateTime.now());
+  Timestamp? timeToWakeUp = Timestamp.fromDate(DateTime.now());
+  Timestamp? timeWokenUp = Timestamp.fromDate(DateTime.now());
+  Timestamp? timeSlept = Timestamp.fromDate(DateTime.now());
   late StatusType? status;
 
   SleepTracker(
@@ -78,7 +78,9 @@ class SleepTracker {
       "snoringTimes": snoringTimes,
       "timeToSleep": timeToSleep,
       "timeToWakeUp": timeToWakeUp,
-      "status": _setStatus()
+      "status": _setStatus(),
+      "timeWokenUp": timeWokenUp,
+      "timeSlept": timeSlept
     };
   }
 }

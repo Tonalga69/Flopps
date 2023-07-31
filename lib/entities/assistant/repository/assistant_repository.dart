@@ -95,5 +95,5 @@ Future<DocumentSnapshot<Map<String, dynamic>>?> getSelectedAssistant() async {
 }
 
 Future<QuerySnapshot<Map<String, dynamic>>> getShopAssistants() async {
-  return await _db.collection(Collections.shopAsistants).get();
+  return await _db.collection(Collections.shopAssistants).get();
 }}

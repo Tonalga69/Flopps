@@ -203,6 +203,7 @@ dependencies:
   reflex: ^0.0.2
   scroll_to_index: ^3.0.1
   day_night_time_picker: ^1.3.0
+  cached_network_image: ^3.2.3
 
 dev_dependencies:
   flutter_test:

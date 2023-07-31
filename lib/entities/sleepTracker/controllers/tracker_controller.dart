@@ -2,12 +2,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flopps/entities/sleepTracker/models/model.dart';
 import 'package:flopps/entities/sleepTracker/repositories/firebase.dart';
 import 'package:flopps/entities/sleepTracker/repositories/local_storage.dart';
+import 'package:flopps/utils/ProjectColors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../utils/Strings.dart';
+
 class TrackerController extends GetxController {
   static TrackerController get instance => Get.find();
-  bool isSleeping = false;
+  bool isSleeping = true;
   bool timerIsActive = false;
 
   SleepTracker tracker = SleepTracker();
@@ -19,53 +22,79 @@ class TrackerController extends GetxController {
     getTimerIsActive();
   }
 
-  void getIsSleeping() async {
+  Future<bool> getIsSleeping() async {
     isSleeping =
         await SleepTrackerLocalStorageRepository.instance.checkIsSleeping();
     update();
+
+    return isSleeping;
   }
 
   void setIsSleeping(bool value) async {
     isSleeping = value;
     SleepTrackerLocalStorageRepository.instance.setIsSleeping(value);
     if (isSleeping) {
-      tracker.timeToWakeUp = Timestamp.fromDate(DateTime.now());
+      tracker.timeWokenUp = Timestamp.fromDate(DateTime.now());
+      setTimeWokenUp(tracker.timeWokenUp!);
     } else {
-      tracker.timeToSleep = Timestamp.fromDate(DateTime.now());
+      tracker.timeSlept = Timestamp.fromDate(DateTime.now());
+      setTimeSlept(tracker.timeSlept!);
     }
     update();
   }
 
-  void getTimerIsActive() async {
+  Future<bool> getTimerIsActive() async {
     timerIsActive =
         await SleepTrackerLocalStorageRepository.instance.checkTimerIsActive();
     update();
+    return timerIsActive;
   }
 
   void setTimerIsActive(bool value) async {
     timerIsActive = value;
     SleepTrackerLocalStorageRepository.instance.setTimerIsActive(value);
+    if (value) {
+      Get.showSnackbar(const GetSnackBar(
+          duration: Duration(seconds: 5),
+          isDismissible: true,
+          titleText: Text(
+            Strings.sleepTracker,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+                fontSize: 14,
+                color: Color(ProjectColors.white),
+                fontFamily: FontFamily.sourceSansPro),
+          ),
+          snackStyle: SnackStyle.FLOATING,
+          backgroundColor: Color(ProjectColors.blackBackground),
+          messageText: Text(
+            Strings.youWillBeNotified,
+            style: TextStyle(
+                color: Color(ProjectColors.white),
+                fontFamily: FontFamily.sourceSansPro),
+          )));
+    }
     update();
   }
 
-  void getTimeWokenUp() async {
+  Future<void> getTimeWokenUp() async {
     tracker.timeWokenUp =
         await SleepTrackerLocalStorageRepository.instance.getTimeWokenUp();
     update();
   }
 
-  void setTimeWokenUp(Timestamp time) async {
+  Future<void> setTimeWokenUp(Timestamp time) async {
     tracker.timeWokenUp = time;
     await SleepTrackerLocalStorageRepository.instance.setTimeWokenUp(time);
   }
 
-  void getTimeSlept() async {
+  Future<void> getTimeSlept() async {
     tracker.timeSlept =
         await SleepTrackerLocalStorageRepository.instance.getTimeSlept();
     update();
   }
 
-  void setTimeSlept(Timestamp time) async {
+  Future<void> setTimeSlept(Timestamp time) async {
     tracker.timeSlept = time;
     await SleepTrackerLocalStorageRepository.instance.setTimeSlept(time);
   }
@@ -75,22 +104,31 @@ class TrackerController extends GetxController {
     if (result != null) {
       tracker = SleepTracker.fromFirebase(result);
     }
+    await getTimeWokenUp();
+    await getTimeSlept();
+    update();
   }
 
   void updateTimeTo(BuildContext context) async {
-    final TimeOfDay? timePicked =await showTimePicker(context: context, initialTime: TimeOfDay.now(), builder: (context, child) {
-      return TimePickerDialog(initialTime: TimeOfDay.now(), );
-    },);
+    final TimeOfDay? timePicked = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay.now(),
+      builder: (context, child) {
+        return TimePickerDialog(
+          initialTime: TimeOfDay.now(),
+        );
+      },
+    );
 
     if (timePicked != null) {
       isSleeping
-          ? tracker.timeToSleep = Timestamp.fromDate(DateTime(
+          ? tracker.timeToWakeUp = Timestamp.fromDate(DateTime(
               DateTime.now().year,
               DateTime.now().month,
               DateTime.now().day,
               timePicked.hour,
               timePicked.minute))
-          : tracker.timeToWakeUp = Timestamp.fromDate(DateTime(
+          : tracker.timeToSleep = Timestamp.fromDate(DateTime(
               DateTime.now().year,
               DateTime.now().month,
               DateTime.now().day,
@@ -112,6 +150,7 @@ class TrackerController extends GetxController {
     if (updatedDoc != null) {
       tracker = sleepTracker;
     }
+
     update();
   }
 }
