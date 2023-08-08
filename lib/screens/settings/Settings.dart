@@ -28,12 +28,13 @@ class _SettingsState extends State<Settings> {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
+    controllerUser.getUserData().then((value) => null);
 
   }
 
   @override
   Widget build(BuildContext context) {
-    controllerUser.getUserData().then((value) => null);
+
     return Scaffold(
       appBar: AppBar(backgroundColor: const Color(ProjectColors.strongBlue),
       systemOverlayStyle: const SystemUiOverlayStyle(

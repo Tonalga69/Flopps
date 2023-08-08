@@ -17,18 +17,16 @@ class UserController extends GetxController {
 
   Future<UserModel> getUserData() async {
     user = await UserRepository.instance.getDetailedUserData(uid: user.uid);
+    update();
     return user;
+
   }
 
   Future<String?> uploadPhoto(BuildContext context) async {
-
-
-
     final ImagePicker picker = ImagePicker();
     // Pick an image.
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
     if (image != null) {
-
       CroppedFile? croppedFile = await ImageCropper().cropImage(
         sourcePath: image.path,
         aspectRatioPresets: [
@@ -40,12 +38,14 @@ class UserController extends GetxController {
               toolbarColor: const Color(ProjectColors.blue),
               toolbarWidgetColor: const Color(ProjectColors.grayBackground),
               initAspectRatio: CropAspectRatioPreset.original,
+              statusBarColor: const Color(ProjectColors.blue),
               lockAspectRatio: false),
         ],
       );
-      if(croppedFile!=null){
-        final data= await croppedFile.readAsBytes();
-        final String? urlPath = await StorageRepository.instance.uploadImage(data);
+      if (croppedFile != null) {
+        final data = await croppedFile.readAsBytes();
+        final String? urlPath =
+            await StorageRepository.instance.uploadImage(data);
         UserRepository.instance.updateUserFields(
             uid: user.uid, map: {"profilePhoto": urlPath}).then((value) {
           if (value != null) {
@@ -55,7 +55,9 @@ class UserController extends GetxController {
           } else {
             ScaffoldMessenger.of(context)
                 .showSnackBar(genericSnackBar(Strings.genericSuccess));
-            return user.profilePhoto = urlPath;
+             user.profilePhoto = urlPath;
+            update();
+            return urlPath;
           }
         });
       }
@@ -68,31 +70,61 @@ class UserController extends GetxController {
     UserRepository.instance
         .updateUserFields(uid: user.uid, map: map)
         .then((value) {});
+    update();
   }
 
   void updateFriendsList(String uid, frienduid, friendMail) async {
-    await UserRepository.instance.updateFriendsList(uid, frienduid, friendMail);
+    final data = await UserRepository.instance
+        .updateFriendsList(uid, frienduid, friendMail);
+    if (data != null) {
+      user.friends = data;
+      update();
+    }
   }
 
   void sendFriendRequestTo(String uid, UserModel sender) async {
     await UserRepository.instance.sendFriendRequestTo(uid: uid, sender: sender);
   }
 
-  void stopBeingFriends(UserModel me , UserModel friend) async {
+  void stopBeingFriends(UserModel me, UserModel friend) async {
     await UserRepository.instance.stopBeingFriends(me, friend);
+    final index =
+        user.friends!.indexWhere((element) => element.uid == friend.uid);
+    user.friends!.removeAt(index);
+    update();
   }
+
   void cancelFriendRequest(String frienduid, UserModel me) async {
     await UserRepository.instance.cancelFriendRequest(frienduid, me);
   }
 
+  void acceptFriendRequest(UserModel userRequested) async {
+    user.pendingRequests!.removeWhere((element) => element.uid == userRequested.uid);
+    UserRepository.instance.acceptFriendRequest(userRequested, user);
+    update();
+    update(["friends"]); //update friends list
+  }
+
+  void declineFriendRequest(UserModel requestedUser) {
+    user.pendingRequests!.removeWhere((element) => element.uid == requestedUser.uid);
+    UserRepository.instance.declineFriendRequest(requestedUser, user);
+    update( );
+
+  }
+
   Future<List<UserModel>?> getUserQuery(String name) async {
     try {
-      return await UserRepository.instance.getUserQuery(name, user.userName?? "");
+      return await UserRepository.instance
+          .getUserQuery(name, user.userName ?? "");
     } catch (e) {
-      print(e);
       return null;
     }
+  }
 
-}
+  Future<String> getProfileUrl(String uid) async {
+    return await StorageRepository.instance.getProfileUrl(uid) ??
+        Strings.defaultProfilePhoto;
+  }
+
 
 }

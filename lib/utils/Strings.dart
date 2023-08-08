@@ -62,6 +62,9 @@ class Strings {
   static const String pending="Pending";
   static const String youWillBeNotified="You will be notified when it's time to sleep or wake up";
   static const String friendRequest="Friends request";
+  static const String searchFriendsToGetStarted="Search for friends to add them to your list";
+  static const String profilePhoto="Profile photo";
+  static const String assistantPhoto="Assistant photo";
 }
 
 class Collections{

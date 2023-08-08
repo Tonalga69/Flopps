@@ -1,4 +1,5 @@
 import 'package:auth_buttons/auth_buttons.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flopps/entities/assistant/controllers/AssistantController.dart';
 import 'package:flopps/entities/users/controllers/SignInController.dart';
 import 'package:flopps/entities/users/controllers/userController.dart';
@@ -6,6 +7,7 @@ import 'package:flopps/entities/users/repositories/authMethod.dart';
 import 'package:flopps/screens/Dashboard/MainDashboard/dashboard.dart';
 import 'package:flopps/screens/settings/Settings.dart';
 import 'package:flopps/screens/social/social_screen.dart';
+import 'package:flopps/screens/viewImages/view_images.dart';
 import 'package:flopps/utils/ProjectColors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -55,11 +57,27 @@ class DrawerMenu extends StatelessWidget {
                       child: SizedBox(
                         width: 48,
                         height: 48,
-                        child: CircleAvatar(
-                          backgroundImage: NetworkImage(
-                              userController.user.profilePhoto ??
-                                  Strings.defaultProfilePhoto),
+                        child: InkWell(
+                          onTap: () {
+                            Get.to(
+                                () => ViewImages(
+                                    imageUrl:
+                                        userController.user.profilePhoto ??
+                                            Strings.defaultProfilePhoto,
+                                    title: userController.user.userName ??
+                                        Strings.profilePhoto),
 
+                                duration: const Duration(milliseconds: 500));
+                          },
+                          child: Hero(
+                            tag: userController.user.profilePhoto ??
+                                Strings.defaultProfilePhoto,
+                            child: CircleAvatar(
+                              backgroundImage: CachedNetworkImageProvider(
+                                  userController.user.profilePhoto ??
+                                      Strings.defaultProfilePhoto),
+                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -70,10 +88,29 @@ class DrawerMenu extends StatelessWidget {
                           height: 150,
                           padding: const EdgeInsets.only(
                               bottom: 30, left: 30, top: 30, right: 30),
-                          child: CircleAvatar(
-                              backgroundImage: NetworkImage(
+                          child: InkWell(
+                            onTap: () {
+                              Get.to(
+                                  () => ViewImages(
+                                      imageUrl: assistantController
+                                              .assistant?.profilePhoto ??
+                                          Strings.defaultProfilePhoto,
+                                      title:
+                                          assistantController.assistant?.name ??
+                                              Strings.assistantPhoto),
+                                  duration: const Duration(milliseconds: 500));
+                            },
+                            child: Hero(
+                              tag:
                                   assistantController.assistant?.profilePhoto ??
-                                      Strings.defaultProfilePhoto)))),
+                                      Strings.defaultProfilePhoto,
+                              child: CircleAvatar(
+                                  backgroundImage: CachedNetworkImageProvider(
+                                      assistantController
+                                              .assistant?.profilePhoto ??
+                                          Strings.defaultProfilePhoto)),
+                            ),
+                          ))),
                 ],
               ),
             ),
@@ -122,6 +159,67 @@ class DrawerMenu extends StatelessWidget {
                   height: 1,
                   color: const Color(ProjectColors.grayBackground),
                 ),
+
+                ListTile(
+                  title: const Text(
+                    "Dashboard",
+                    style: TextStyle(
+                      color: Color(0xffffffff),
+                    ),
+                  ),
+                  style: ListTileStyle.drawer,
+                  subtitle: const Text("Go to home screen",
+                      style: TextStyle(color: Color(0xffffffff))),
+                  onTap: () {
+                    Get.currentRoute == "/MainDashboard"
+                        ? Get.off(() => const MainDashboard(),
+                            transition: Transition.rightToLeft,
+                            duration: const Duration(milliseconds: 500))
+                        : Get.back(closeOverlays: false, canPop: true);
+                    Get.back(closeOverlays: false, canPop: true);
+                  },
+                  trailing: const Icon(
+                    Icons.home_filled,
+                    color: Color(ProjectColors.grayBackground),
+                  ),
+                ),
+                Container(
+                  height: 1,
+                  color: const Color(ProjectColors.grayBackground),
+                  width: double.infinity - 100,
+                ),
+                ListTile(
+                  title: const Text(
+                    "Social",
+                    style: TextStyle(
+                      color: Color(0xffffffff),
+                    ),
+                  ),
+                  style: ListTileStyle.drawer,
+                  subtitle: const Text("Accept requests or connect to others",
+                      style: TextStyle(color: Color(0xffffffff))),
+                  onTap: () {
+                    if (Get.currentRoute == "/MainDashboard") {
+                      Get.back();
+                      Get.to(() => const SocialScreen(),
+                          transition: Transition.rightToLeft,
+                          duration: const Duration(milliseconds: 500));
+                    }
+
+                    Get.off(() => const SocialScreen(),
+                        transition: Transition.rightToLeft,
+                        duration: const Duration(milliseconds: 500));
+                  },
+                  trailing: const Icon(
+                    Icons.people,
+                    color: Color(ProjectColors.grayBackground),
+                  ),
+                ),
+                Container(
+                  height: 1,
+                  color: const Color(ProjectColors.grayBackground),
+                  width: double.infinity - 100,
+                ),
                 ListTile(
                   title: const Text(
                     "Settings",
@@ -133,7 +231,7 @@ class DrawerMenu extends StatelessWidget {
                   subtitle: const Text("Change your user name, photo, etc",
                       style: TextStyle(color: Color(0xffffffff))),
                   onTap: () {
-                    if(Get.currentRoute=="/MainDashboard"){
+                    if (Get.currentRoute == "/MainDashboard") {
                       Get.back();
                       Get.to(() => const Settings(),
                           transition: Transition.rightToLeft,
@@ -149,82 +247,15 @@ class DrawerMenu extends StatelessWidget {
                     color: Color(ProjectColors.grayBackground),
                   ),
                 ),
-                Container(
-                  height: 1,
-                  color: const Color(ProjectColors.grayBackground),
-                  width: double.infinity - 100,
-                ),
-                ListTile(
-                  title: const Text(
-                    "Dashboard",
-                    style: TextStyle(
-                      color: Color(0xffffffff),
-                    ),
-                  ),
-                  style: ListTileStyle.drawer,
-                  subtitle: const Text("Go to home screen",
-                      style: TextStyle(color: Color(0xffffffff))),
-                  onTap: () {
-                    Get.currentRoute=="/MainDashboard"?
-                    Get.off(() => const MainDashboard(),
-                        transition: Transition.rightToLeft,
-                        duration: const Duration(milliseconds: 500)):
-                    Get.back(closeOverlays: false, canPop: true);
-                    Get.back(closeOverlays: false, canPop: true);
-
-                  },
-                  trailing: const Icon(
-                    Icons.home_filled,
-                    color: Color(ProjectColors.grayBackground),
-                  ),
-                ),
-                Container(
-                  height: 1,
-                  color: const Color(ProjectColors.grayBackground),
-                  width: double.infinity - 100,
-                ),
-
-                ListTile(
-                  title: const Text(
-                    "Social",
-                    style: TextStyle(
-                      color: Color(0xffffffff),
-                    ),
-                  ),
-                  style: ListTileStyle.drawer,
-                  subtitle: const Text("Accept requests or connect to others",
-                      style: TextStyle(color: Color(0xffffffff))),
-                  onTap: () {
-                    if(Get.currentRoute=="/MainDashboard"){
-                      Get.back();
-                      Get.to(() =>  SocialScreen(),
-                          transition: Transition.rightToLeft,
-                          duration: const Duration(milliseconds: 500));
-                    }
-
-                    Get.off(() =>  SocialScreen(),
-                        transition: Transition.rightToLeft,
-                        duration: const Duration(milliseconds: 500));
-
-                  },
-                  trailing: const Icon(
-                    Icons.people,
-                    color: Color(ProjectColors.grayBackground),
-                  ),
-                ),
-
 
                 Container(
                   height: 3,
                   width: 25,
                   margin: const EdgeInsets.only(top: 10),
                   decoration: const BoxDecoration(
-                    color:
-                      Color(ProjectColors.grayBackground), 
-                    borderRadius: BorderRadius.all(Radius.circular(5))
-                  ),
+                      color: Color(ProjectColors.grayBackground),
+                      borderRadius: BorderRadius.all(Radius.circular(5))),
                 ),
-
                 ListTile(
                   title: const Text(
                     "Log out",

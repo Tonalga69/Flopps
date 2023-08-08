@@ -1,4 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flopps/entities/assistant/controllers/AssistantController.dart';
+import 'package:flopps/entities/events/widgets/floatingActionButtonEvents.dart';
 import 'package:flopps/screens/events/events.dart';
 import 'package:flopps/screens/sleepTracker/sleepTrackerScreen.dart';
 import 'package:flopps/utils/DrawerMenu.dart';
@@ -34,6 +36,11 @@ class _MainDashboardState extends State<MainDashboard> with WidgetsBindingObserv
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
+
+    assistantController
+        .setInitialAssistant()
+        .then((value) => assistantController.getSelectedAssistant());
+    userController.getUserData().then((value) => null);
   }
 
 
@@ -52,14 +59,10 @@ class _MainDashboardState extends State<MainDashboard> with WidgetsBindingObserv
 
   @override
   Widget build(BuildContext context) {
-    assistantController
-        .setInitialAssistant()
-        .then((value) => assistantController.getSelectedAssistant());
-    userController.getUserData().then((value) => null);
+
     return Scaffold(
       floatingActionButton: pageIndex == 0
-          ? FloatingActionButton(
-              onPressed: () {}, child: const Icon(FontAwesomeIcons.plus, color: Colors.white,))
+          ? const FloatingActionButtonEvents()
           : null,
       appBar: AppBar(
           actions: [
@@ -67,8 +70,9 @@ class _MainDashboardState extends State<MainDashboard> with WidgetsBindingObserv
                 future: userController.getUserData(),
                 builder: (BuildContext context, AsyncSnapshot<UserModel> user) {
                   return CircleAvatar(
-                    backgroundImage: NetworkImage(
+                    backgroundImage: CachedNetworkImageProvider(
                         user.data?.profilePhoto ?? Strings.defaultProfilePhoto),
+
                   );
                 }),
           ],

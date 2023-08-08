@@ -6,6 +6,8 @@ import 'package:flopps/utils/ProjectColors.dart';
 import 'package:flopps/utils/Strings.dart';
 import 'package:flutter/material.dart';
 
+import '../../users/controllers/userController.dart';
+
 class BottomSheetAssistant extends StatefulWidget {
   const BottomSheetAssistant({Key? key}) : super(key: key);
 
@@ -15,6 +17,7 @@ class BottomSheetAssistant extends StatefulWidget {
 
 class _BottomSheetAssistantState extends State<BottomSheetAssistant> {
   AssistantController assistantController = AssistantController.instance;
+  final userController = UserController.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +72,7 @@ class _BottomSheetAssistantState extends State<BottomSheetAssistant> {
                           photoUrl: data[index].profilePhoto,
                           onTap: () {
                             assistantController
-                                .selectAssistant(data[index].uid);
+                                .selectAssistant(data[index].uid, userController.user.uid);
                             Navigator.pop(context);
                           });
                     },

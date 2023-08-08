@@ -8,16 +8,43 @@ import 'package:get/get.dart';
 class StorageRepository extends GetxController {
   static StorageRepository get instance => Get.find();
   final _reference = FirebaseStorage.instance.ref();
-  final String? _uid = FirebaseAuth.instance.currentUser?.uid;
+
+
+
 
   Future<String?> uploadImage(Uint8List file) async {
+    String? uid = FirebaseAuth.instance.currentUser?.uid;
 
     try {
-      await _reference.child("/users/$_uid/profilePhoto.jpg").putData(file);
+      await _reference.child("/users/$uid/profilePhoto.jpg").putData(file);
+      print("$uid-----------------------------------------------------");
       return await _reference
-          .child("/users/$_uid/profilePhoto.jpg")
+          .child("/users/$uid/profilePhoto.jpg")
           .getDownloadURL();
     } on FirebaseException catch (_) {
+      Get.showSnackbar(genericSnackBar(Strings.genericError));
+      return null;
+    }
+  }
+
+  Future<String?> getProfileUrl(String uid) async {
+    try {
+      return await _reference
+          .child("/users/$uid/profilePhoto.jpg")
+          .getDownloadURL();
+    } on FirebaseException catch (_) {
+      Get.showSnackbar(genericSnackBar(Strings.genericError));
+      return null;
+    }
+  }
+  Future<String?> getAssistantUrl(String uid) async {
+    try {
+
+      return await _reference
+          .child("/asisstant/$uid.jpg")
+          .getDownloadURL();
+      
+    }  catch (_) {
       Get.showSnackbar(genericSnackBar(Strings.genericError));
       return null;
     }

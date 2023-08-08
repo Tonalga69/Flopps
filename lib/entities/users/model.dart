@@ -1,13 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 
 class UserModel {
   late final String uid;
   late String? userName;
   late final String email;
   late String? profilePhoto;
-  late final String? authMethod;
+  late String? authMethod;
   late List<UserModel>? friends;
   late List<UserModel>? pendingRequests;
+  late String? assistantUid;
 
   UserModel(
       {required this.uid,
@@ -16,23 +18,36 @@ class UserModel {
       this.profilePhoto,
       this.authMethod,
       this.friends,
-      this.pendingRequests});
+      this.pendingRequests,
+      this.assistantUid});
 
   factory UserModel.fromMap(Map<String, dynamic> map) {
     return UserModel(
       uid: map['uid'],
       email: map['email'],
+      userName: map['userName'],
+      assistantUid: map['assistantUid'],
     );
   }
 
-  factory UserModel.fromFirestore(
+  factory UserModel.fromFireStore(
     DocumentSnapshot<Map<String, dynamic>> snapshot,
   ) {
     final data = snapshot.data();
     final friends = data?['friends'] as List<dynamic>?;
     final pendingRequests = data?['pendingRequests'] as List<dynamic>?;
-    List<UserModel>? pendingRequestsList= pendingRequests?.map((e) => UserModel.fromMap(e)).toList();
-    List<UserModel>? friendsList = friends?.map((e) => UserModel.fromMap(e)).toList();
+    List<UserModel>? pendingRequestsList;
+    List<UserModel>? friendsList;
+
+    try {
+      pendingRequestsList =
+          pendingRequests?.map((e) => UserModel.fromMap(e)).toList();
+      friendsList = friends?.map((e) => UserModel.fromMap(e)).toList();
+    } catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+    }
 
     return UserModel(
         uid: data?['uid'],
@@ -41,7 +56,8 @@ class UserModel {
         profilePhoto: data?['profilePhoto'],
         authMethod: data?['authMethod'],
         friends: friendsList,
-        pendingRequests: pendingRequestsList);
+        pendingRequests: pendingRequestsList,
+        assistantUid: data?['assistantUid']);
   }
 
   toJson() {
@@ -61,7 +77,8 @@ class UserModel {
       "profilePhoto": profilePhoto,
       "authMethod": authMethod,
       "friends": friends,
-      "pendingRequests": pendingRequests
+      "pendingRequests": pendingRequests,
+      "assistantUid": assistantUid
     };
   }
 }
