@@ -109,6 +109,7 @@ class DrawerMenu extends StatelessWidget {
                                       assistantController
                                               .assistant?.profilePhoto ??
                                           Strings.defaultProfilePhoto)),
+                              
                             ),
                           ))),
                 ],
