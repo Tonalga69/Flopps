@@ -50,20 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCeZXJ7zUEHDhccBmw4vfHcfvndOzpksQk',
-    appId: '1:28807731044:android:9e91a62f3eccdd5fd90c71',
-    messagingSenderId: '28807731044',
-    projectId: 'athenas-307b8',
-    storageBucket: 'athenas-307b8.appspot.com',
+    apiKey: '//Api',
+    appId: '//Api',
+    messagingSenderId: '//Api',
+    projectId: '//Api',
+    storageBucket: '//Api',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBRaOjhXVW5fCLnO3xQ-ynaD7dvYGS6wfg',
-    appId: '1:28807731044:ios:e695115699c3da49d90c71',
-    messagingSenderId: '28807731044',
-    projectId: 'athenas-307b8',
-    storageBucket: 'athenas-307b8.appspot.com',
-    iosClientId: '28807731044-utjcflneelia45a2lcah2skfi9vgr7bi.apps.googleusercontent.com',
-    iosBundleId: 'com.example.flopps',
+    apiKey: '//Api',
+    appId: '//Api',
+    messagingSenderId: '//Api',
+    projectId: '//Api',
+    storageBucket: '//Api',
+    iosClientId: '//Api',
+    iosBundleId: '//Api',
   );
 }
