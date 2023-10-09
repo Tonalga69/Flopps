@@ -3,38 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Display</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+    <title>Flopps</title>
 
-        .image {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .button {
-            display: inline-block;
-            background-color: #007bff;
-            color: #fff;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-
-        .button:hover {
-            background-color: #0056b3;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -42,7 +12,7 @@
         <h3> This is an adroid app built with flutter to create events and get some friends! </h3>
         <img class="image" src="https://firebasestorage.googleapis.com/v0/b/athenas-307b8.appspot.com/o/apk%2F539shots_so.png?alt=media&token=e6438472-6166-4e05-98e2-d6d8373ba8f1" alt="Image Description">
         <p>Download apk here</p>
-        <a class="button" href="URL_TO_GO_TO">Get APK</a>
+        <a class="button" href="https://firebasestorage.googleapis.com/v0/b/athenas-307b8.appspot.com/o/apk%2Fapp-release.apk?alt=media&token=c42d4d89-09bf-4265-9728-b194f80680db">Get APK</a>
     </div>
 </body>
 </html>
