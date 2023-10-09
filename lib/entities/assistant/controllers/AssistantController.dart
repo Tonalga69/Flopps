@@ -49,6 +49,10 @@ class AssistantController extends GetxController {
     }
   }
 
+  Future<void> downloadPicture(String url) async {
+    await StorageRepository.instance.downloadPicture(url);
+  }
+
   Future<void> setInitialAssistant() async {
     await AssistantRepository.instance.setInitialAssistant();
   }

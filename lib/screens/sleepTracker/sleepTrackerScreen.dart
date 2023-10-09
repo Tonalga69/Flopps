@@ -11,10 +11,11 @@ class SleepTrackerScreen extends StatefulWidget {
   State<SleepTrackerScreen> createState() => _SleepTrackerScreenState();
 }
 
-class _SleepTrackerScreenState extends State<SleepTrackerScreen> {
+class _SleepTrackerScreenState extends State<SleepTrackerScreen> with AutomaticKeepAliveClientMixin<SleepTrackerScreen> {
   final _sleepTrackerController= Get.put(TrackerController());
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     _sleepTrackerController.onReady();
     return SingleChildScrollView(
       child: Container(
@@ -25,4 +26,7 @@ class _SleepTrackerScreenState extends State<SleepTrackerScreen> {
       ),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

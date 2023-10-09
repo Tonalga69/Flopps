@@ -1,6 +1,7 @@
 import 'package:auth_buttons/auth_buttons.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flopps/entities/assistant/controllers/AssistantController.dart';
+import 'package:flopps/entities/events/controllers/eventController.dart';
 import 'package:flopps/entities/users/controllers/SignInController.dart';
 import 'package:flopps/entities/users/controllers/userController.dart';
 import 'package:flopps/entities/users/repositories/authMethod.dart';
@@ -274,6 +275,34 @@ class DrawerMenu extends StatelessWidget {
                     Icons.logout,
                     color: Color(ProjectColors.grayBackground),
                   ),
+                ),
+
+                Column(
+                  children: [
+                    Container(
+                      height: 1,
+                      color: const Color(ProjectColors.grayBackground),
+                      width: double.infinity - 100,
+                    ),
+                    ListTile(
+                      title: const Text(
+                        "About",
+                        style: TextStyle(
+                          color: Color(0xffffffff),
+                        ),
+                      ),
+                      style: ListTileStyle.drawer,
+                      subtitle: const Text("About Flopps",
+                          style: TextStyle(color: Color(0xffffffff))),
+                      onTap: () {
+                        EventController.instance.openMaps("https://github.com/Tonalga69", context);
+                      },
+                      trailing: const Icon(
+                        Icons.info,
+                        color: Color(ProjectColors.grayBackground),
+                      ),
+                    ),
+                  ],
                 )
               ],
             )

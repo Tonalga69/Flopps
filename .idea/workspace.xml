@@ -13,11 +13,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76b60cba-fd6c-4450-869d-4c3c75da4bd9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/assets/lotties/commingsoon.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/assets/lotties/maps.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/assets/lotties/noEvents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/assets/lotties/url.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/entities/events/controllers/eventController.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/entities/events/repositories/EventRepository.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/events/addEventScreen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/ia/ia_screen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/ia/widgets/chatMessage.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/ia/widgets/sender.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/Assets.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/entities/users/repositories/AuthRepository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/users/repositories/AuthRepository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/entities/assistant/controllers/AssistantController.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/assistant/controllers/AssistantController.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/entities/events/models/events.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/events/models/events.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/entities/events/widgets/closestEvent.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/events/widgets/closestEvent.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/entities/events/widgets/event_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/events/widgets/event_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/entities/events/widgets/eventsDashboard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/events/widgets/eventsDashboard.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/entities/events/widgets/floatingActionButtonEvents.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/events/widgets/floatingActionButtonEvents.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/entities/users/controllers/userController.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/users/controllers/userController.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/entities/users/repositories/storageRepository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/users/repositories/storageRepository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/entities/users/widgets/fiendsList.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/users/widgets/fiendsList.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/entities/users/widgets/user_result_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/users/widgets/user_result_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/Dashboard/MainDashboard/dashboard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/Dashboard/MainDashboard/dashboard.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/events/events.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/events/events.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/signUp/signUpLandScape.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/signUp/signUpLandScape.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/signUp/signUpPortrait.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/signUp/signUpPortrait.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/sleepTracker/sleepTrackerScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/sleepTracker/sleepTrackerScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/DrawerMenu.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/DrawerMenu.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/Strings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/Strings.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,20 +116,21 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/scr/flutter&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/52331/Documents/GitHub/Flopps/lib/assets/lotties&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\52331\Documents\GitHub\Flopps\lib\assets\lotties" />
       <recent name="C:\Users\52331\Documents\GitHub\Flopps\lib\screens\signUp" />
       <recent name="C:\Users\52331\Documents\GitHub\Flopps\lib\fonts\sourseSansPro" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\52331\Documents\GitHub\Flopps\lib\assets\lotties" />
       <recent name="C:\Users\52331\Documents\GitHub\Flopps\lib\entities\events\widgets" />
       <recent name="C:\Users\52331\Documents\GitHub\Flopps\lib\entities\events" />
-      <recent name="C:\Users\52331\Documents\GitHub\Flopps\lib\assets\lotties" />
       <recent name="C:\Users\52331\Documents\GitHub\Flopps\lib\entities\sleepTracker\repositories" />
       <recent name="C:\Users\52331\Documents\GitHub\Flopps\lib\assets\images" />
     </key>

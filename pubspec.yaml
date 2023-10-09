@@ -194,18 +194,20 @@ dependencies:
   image_cropper: ^4.0.1
   is_lock_screen: ^2.0.0
   noise_meter: ^3.2.0
-  permission_handler: ^10.3.0
+  permission_handler: ^10.4.5
   fl_chart: ^0.62.0
   percent_indicator: ^4.2.3
   switcher_button: ^0.0.4
   localstore: ^1.3.5
-  flutter_overlay_window: ^0.4.3
   reflex: ^0.0.2
   scroll_to_index: ^3.0.1
   day_night_time_picker: ^1.3.0
   cached_network_image: ^3.2.3
   lottie: ^2.3.2
   flutter_speed_dial: ^7.0.0
+  map: ^1.4.1
+  http: ^0.13.6
+  url_launcher: ^6.1.11
 
 dev_dependencies:
   flutter_test:

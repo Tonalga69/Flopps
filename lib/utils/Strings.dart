@@ -65,6 +65,23 @@ class Strings {
   static const String searchFriendsToGetStarted="Search for friends to add them to your list";
   static const String profilePhoto="Profile photo";
   static const String assistantPhoto="Assistant photo";
+  static const String ia="IA chat";
+  static const String eventLocation= 'Event location';
+  static const String eventDescription='Event description';
+  static const String enterEventDescription='Enter event description...';
+  static const String addEvent='Add event';
+  static const String eventName='Event name';
+  static const String addUrl= ' Add url';
+  static const String setEventDate=  'Set an event date';
+  static const String noDate=  'No Date';
+  static const String inviteFriends = "Invite friends";
+  static const String noFriendsInvited = "No friends invited yet";
+  static const String theyWillBePresent ="They'll be present";
+  static const String dummyText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget aliquam ultricies, nisl nisl aliquam nisl, nec aliqua nisl nisl nisl. Nisl";
+  static const String foquitaUrl="https://firebasestorage.googleapis.com/v0/b/athenas-307b8.appspot.com/o/defaultProfileImage%2Ffoquita.jpeg?alt=media&token=4d09ad45-20aa-4a24-8a47-6520c27d3002";
+
+  static const String  typeHere= "Type here...";
+
 }
 
 class Collections{

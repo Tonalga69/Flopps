@@ -34,14 +34,19 @@ class _SignUpLandScapeState extends State<SignUpLandScape> {
             mainAxisAlignment: MainAxisAlignment.end,
             // crossAxisAlignment: CrossAxisAlignment.,
             children: [
-              const Expanded(
+               Expanded(
                   flex: 25,
-                  child: Icon(
-                    FontAwesomeIcons.accusoft,
-                    size: 48,
-                    color: Color(0xffffffff),
-
-                  )),
+                  child: Container(
+                    alignment: Alignment.center,
+                    child:  const SizedBox(
+                      height: 100,
+                      width: 100,
+                      child: CircleAvatar(
+                        backgroundImage:
+                        AssetImage("lib/assets/images/logo.png",),
+                      ),
+                    ),
+                  ),),
               Expanded(
                 flex: 75,
                 child: Container(

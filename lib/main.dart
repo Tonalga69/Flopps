@@ -1,4 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flopps/entities/events/repositories/EventRepository.dart';
 import 'package:flopps/entities/sleepTracker/repositories/firebase.dart';
 import 'package:flopps/entities/users/repositories/AuthRepository.dart';
 import 'package:flopps/entities/users/repositories/UserRepository.dart';
@@ -27,6 +28,7 @@ void main() {
     Get.put(AssistantRepository());
     Get.put(SleepTrackerFirebaseRepository());
     Get.put(SleepTrackerLocalStorageRepository());
+    Get.put(EventRepository());
     FlutterNativeSplash.remove();
   });
   runApp(const MyApp());

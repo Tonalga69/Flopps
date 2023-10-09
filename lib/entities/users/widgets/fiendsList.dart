@@ -19,6 +19,7 @@ class _FriendsListWidgetState extends State<FriendsListWidget> {
   late int scrollPosition = 0;
   final userController = UserController.instance;
 
+
   @override
   void initState() {
     super.initState();

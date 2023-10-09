@@ -22,6 +22,10 @@ class UserController extends GetxController {
 
   }
 
+  Future<UserModel> getUserByUid(String uid) async {
+    return await UserRepository.instance.getDetailedUserData(uid: uid);
+  }
+
   Future<String?> uploadPhoto(BuildContext context) async {
     final ImagePicker picker = ImagePicker();
     // Pick an image.

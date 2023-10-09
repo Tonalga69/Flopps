@@ -1,7 +1,6 @@
 import 'package:flopps/screens/signUp/SignUpForm.dart';
 import 'package:flopps/screens/signUp/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../utils/ProjectColors.dart';
 import '../../utils/Strings.dart';
@@ -24,14 +23,19 @@ class SignUpPortrait extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              const Expanded(
+               Expanded(
                   flex: 35,
-                  child: Icon(
-                    FontAwesomeIcons.accusoft,
-                    size: 48,
-                    color: Color(0xffffffff),
-
-                  )),
+                  child: Container(
+                    alignment: Alignment.center,
+                    child:  const SizedBox(
+                      height: 100,
+                      width: 100,
+                      child: CircleAvatar(
+                        backgroundImage:
+                        AssetImage("lib/assets/images/logo.png",),
+                      ),
+                    ),
+                  ),),
               Expanded(
                 flex: 65,
                 child: Container(
